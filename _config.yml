@@ -1,0 +1,54 @@
+# Built with Jekyll 3.6.0
+
+# Setup
+title:               Jean-Baptiste Bouvier
+#tagline:             Smart and Hardworking
+description:         Jean-Baptiste Bouvier's Personal Website
+url:                 'http://Jean-BaptisteBouvier.github.io'
+baseurl:             ''
+
+# About/contact
+author:
+  name:              Jean-Baptiste Bouvier
+  url:               http://Jean-BaptisteBouvier.github.io
+  email:             superjibs60@gmail.com
+
+# Color scheme. Options: red, orange, magenta, cyan, blue, brown
+color-scheme: blue
+
+# Permalinks
+permalink: pretty
+permalink: /:title/
+
+# Set encoding to UTF-8
+encoding: utf-8
+
+# Collections for texts
+collections:
+  texts:
+    output: true
+
+# Markdown specs
+markdown: kramdown
+
+kramdown:
+  auto_ids:       true
+  footnote_nr:    1
+  entity_output:  as_char
+  footnote_backlink: "&#x21a9;&#xfe0e;"
+  toc_levels:     1..6
+  smart_quotes:   lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+# Exclusions from the final site
+exclude:
+  - optional
+  - backstop_data
+  - backstop.json
+  - README.md
+
+
+# Remote Theme
+# (Used only for GitHub deployments)
+# See https://help.github.com/en/articles/adding-a-jekyll-theme-to-your-github-pages-site
+remote_theme: minicomp/ed

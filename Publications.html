@@ -1,0 +1,1074 @@
+---
+layout: page
+title: Publications
+---
+
+<head>
+  <title>Publications</title>
+  <style>
+    .abstract, .bibtex {
+      display: none;
+      font-size: 14px;
+	  margin-top:-10mm;
+	  margin-bottom:10mm;
+    }
+	.column {
+		margin-bottom:-5mm;
+	}
+	.row {
+		margin-top:5mm;
+		margin-bottom:10mm;
+	}
+    a { 
+      color: #0000EE;
+      cursor: pointer;
+    }
+	pre {
+	  padding: 10px;
+	}
+	.right {
+	  width: 75%;
+	  font-size: 16px;
+	}	
+	table, tr, td {
+		border: none;
+	}
+  </style>
+  <script>
+    function toggleDisplay(id) {
+      var element = document.getElementById(id);
+      if (!element.style.display || element.style.display === "none") {
+        element.style.display = "block";
+      } else {
+        element.style.display = "none";
+      }
+    }
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+</head>
+<body>
+
+
+
+
+
+
+<ul style="margin-top:1cm;">
+	<li> <a style="color:#454545; text-decoration:none;" href="#Journal">Journal papers</a> </li>
+	<li> <a style="color:#454545; text-decoration:none;" href="#Peer">Peer-reviewed conference papers</a> </li>
+	<li> <a style="color:#454545; text-decoration:none;" href="#Nonpeer">Other conference papers</a> </li>
+	<li> <a style="color:#454545; text-decoration:none;" href="#Theses">Theses</a> </li>
+</ul>
+
+
+
+<hr style="margin-top:1cm;"> 
+<h2>Citations</h2>
+
+<div class="row">
+  <div class="column" width="40%">
+	<a class="button-link" href="https://scholar.google.com/citations?user=Ovf-u14AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+		<span class="button">
+			<i class="ai ai-google-scholar"></i>
+			<span>Google Scholar</span>
+		</span>
+	</a>
+	<a class="button-link" href="https://orcid.org/0000-0003-3116-7252" target="_blank" rel="noopener noreferrer">
+		<span class="button">
+			<i class="ai ai-orcid"></i>
+			<span>ORCID</span>
+		</span>
+	</a>
+	
+	<table id="citations_table" style="margin-top: 5mm;">
+	  <tr> <td>Citations: </td> <td></td> </tr>
+	  <tr> <td>h-index: </td> <td></td> </tr>
+	  <tr> <td>i10-index: </td> <td></td> </tr>
+	</table>
+	<div id="last_update" style="font-size: 12px;"></div>	
+  </div>
+  <div class="column" width="20%" style="margin-right:2cm;"></div>
+  <div class="column" width="40%">
+		<canvas id="histogram" title="Citations histogram" height="200"></canvas>
+  </div>
+</div>
+  
+  
+  
+  
+<hr style="margin-top:1cm;"> 
+<h2 id="Journal">Journal papers</h2>
+  
+  
+  
+
+
+
+
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pics/network_pic.PNG" alt="pic from paper" width="200" >
+  </div>
+  <div class="column right">
+	<em>Losing Control of your Linear Network? Try Resilience Theory</em> <br>
+	<strong>Jean-Baptiste Bouvier</strong>, Sai Pushpak Nandanoori, Melkior Ornik <br>
+	<!--a href="" target="_blank" rel="noopener noreferrer"-->accepted to the IEEE Transactions on Control of Network Systems<!--/a-->, 2024 <br>
+	<div class="links">
+		<a class="button-link" onclick="toggleDisplay('network-abstract')"><span class="button"><i class="fas fa-list"></i> Abstract</span></a>
+		<a class="button-link" onclick="toggleDisplay('network-bibtex')"><span class="button"><i class="fas fa-magnifying-glass"></i> Bibtex</span></a>
+		<a class="button-link" href="{{ site.baseurl }}/assets/PDFs/Resilience_of_Linear_Networks__ArXiv_.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-pdf"></i> Pdf</span>
+		</a>
+		<a class="button-link" href="https://github.com/Jean-BaptisteBouvier/Network-Resilience" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fab fa-github"></i> Code</span>
+		</a>
+		<a class="button-link" href="https://arxiv.org/abs/2306.16588" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="ai ai-arxiv"></i> ArXiv</span>
+		</a>
+		<i class="ai ai-google-scholar"></i> Cited by <a href='' id='Losing Control of your Network? Try Resilience Theory' target="_blank" rel="noopener noreferrer">0</a>
+    </div>
+  </div>
+</div>
+<div id="network-abstract" class="abstract">
+	Resilience of cyber-physical networks to unexpected failures is a critical need widely recognized across domains.
+	For instance, power grids, telecommunication networks, transportation infrastructures and water treatment systems have all been subject to disruptive malfunctions and catastrophic cyber-attacks.
+	Following such adverse events, we investigate scenarios where a network node suffers a loss of control authority over some of its actuators.
+	These actuators are not following the controller's commands and are instead producing undesirable outputs.
+	The repercussions of such a loss of control can propagate and destabilize the whole network despite the malfunction occurring at a single node.
+	To assess system vulnerability, we establish resilience conditions for networks with a subsystem enduring a loss of control authority over some of its actuators.
+	Furthermore, we quantify the destabilizing impact on the overall network when such a malfunction perturbs a nonresilient subsystem.
+	We illustrate our resilience conditions on two academic examples and on the classical IEEE 39-bus system.
+</div>
+<pre id="network-bibtex" class="bibtex">
+@article{bouvier2024losing,
+  title = {Losing Control of your Linear Network? Try Resilience Theory},
+  author = {Jean-Baptiste Bouvier and Sai Pushpak Nandanoori and Melkior Ornik},
+  journal = {accepted to the IEEE Transactions on Control of Network Systems},
+  year = {2024},
+  volume = {},
+  pages = {},
+  doi = {}
+}
+</pre>        
+
+
+
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pics/delay_pic.jpg" alt="pic from paper" width="200" >
+  </div>
+  <div class="column right">
+	<em>Resilient Trajectory Tracking to Partial Loss of Control Authority over Actuators with Actuation Delay</em> <br>
+	<strong>Jean-Baptiste Bouvier</strong>, Himmat Panag, Robyn Woollands, Melkior Ornik <br>
+	<!--a href="" target="_blank" rel="noopener noreferrer"-->submitted to the Journal of Guidance, Control, and Dynamics<!--/a-->, 2023 <br>
+	<div class="links">
+		<a class="button-link" onclick="toggleDisplay('delay-abstract')"><span class="button"><i class="fas fa-list"></i> Abstract</span></a>
+		<a class="button-link" onclick="toggleDisplay('delay-bibtex')"><span class="button"><i class="fas fa-magnifying-glass"></i> Bibtex</span></a>
+		<a class="button-link" href="{{ site.baseurl }}/assets/PDFs/Resilient_Trajectory_Tracking_to_Partial_Loss_of_Control_Authority_over_Actuators_with_Actuation_Delay_arXiv.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-pdf"></i> Pdf</span>
+		</a>
+		<a class="button-link" href="https://github.com/Jean-BaptisteBouvier/Spacecraft-Resilience" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fab fa-github"></i> Code</span>
+		</a>
+		<a class="button-link" href="https://arxiv.org/abs/2303.12877" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="ai ai-arxiv"></i> ArXiv</span>
+		</a>	
+		<i class="ai ai-google-scholar"></i> Cited by <a href='' id='Resilient Trajectory Tracking to Partial Loss of Control Authority over Actuators with Actuation Delay' target="_blank" rel="noopener noreferrer">0</a>
+	</div>
+  </div>
+</div>
+<div id="delay-abstract" class="abstract">
+	After the loss of control authority over thrusters of the Nauka module, the International Space Station lost attitude control for 45 minutes with potentially disastrous consequences.
+	Motivated by a scenario of orbital inspection, we consider a similar malfunction occurring to the inspector satellite and investigate whether its mission can still be safely fulfilled.
+	While a natural approach is to counteract in real-time the uncontrolled and undesirable thrust with the remaining controlled thrusters, vehicles are often subject to actuation delays hindering this approach.
+	Instead, we extend resilience theory to systems suffering from actuation delay and build a resilient trajectory tracking controller with stability guarantees relying on a state predictor.
+	We demonstrate that this controller can track accurately the reference trajectory of the inspection mission despite the actuation delay and the loss of control authority over one of the thrusters.
+</div>
+<pre class="bibtex" id="delay-bibtex">
+@article{bouvier2023resilient,
+  title = {Resilient trajectory tracking to partial loss of control authority over actuators with actuation delay},
+  author = {Jean-Baptiste Bouvier and Himmat Panag and Robyn Woollands and Melkior Ornik},
+  journal = {submitted to the Journal of Guidance, Control, and Dynamics},
+  year = {2023},
+  volume = {},
+  pages = {},
+  doi = {}
+}
+</pre>        
+
+
+
+
+
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pics/Integrators_pic.JPG" alt="pic from paper" width="200" >
+  </div>
+  <div class="column right">
+	<em>Quantitative Resilience of Generalized Integrators</em> <br>
+	<strong>Jean-Baptiste Bouvier</strong>, Kathleen Xu, Melkior Ornik <br>
+	<a href="https://ieeexplore.ieee.org/document/10154130" target="_blank" rel="noopener noreferrer">IEEE Transactions on Automatic Control</a>, 2023 <br>
+	<div class="links">
+		<a class="button-link" onclick="toggleDisplay('integrators-abstract')"><span class="button"><i class="fas fa-list"></i> Abstract</span></a>
+		<a class="button-link" onclick="toggleDisplay('integrators-bibtex')"><span class="button"><i class="fas fa-magnifying-glass"></i> Bibtex</span></a>
+		<a class="button-link" href="{{ site.baseurl }}/assets/PDFs/Quantitative_Resilience_of_Generalized_Integrators__ArXiv_.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-pdf"></i> Pdf</span>
+		</a>
+		<a class="button-link" href="https://github.com/Jean-BaptisteBouvier/Quantitative-Resilience" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fab fa-github"></i> Code</span>
+		</a>
+		<a class="button-link" href="https://arxiv.org/abs/2111.04163" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="ai ai-arxiv"></i> ArXiv</span>
+		</a>	
+		<i class="ai ai-google-scholar"></i> Cited by <a href='' id='Quantitative resilience of generalized integrators' target="_blank" rel="noopener noreferrer">0</a>
+	</div>
+  </div>
+</div>
+<div id="integrators-abstract" class="abstract">
+  When failure is not an option, systems are designed to be resistant to various malfunctions, like a loss of control authority over actuators.
+  This malfunction consists in some actuators producing uncontrolled and thus possibly undesirable inputs with their full actuation range. 
+  After such a malfunction, a system is deemed resilient if its target is still reachable despite these undesirable inputs. 
+  However, the malfunctioning system might be significantly slower to reach its target compared to its initial capabilities. 
+  To quantify this loss of performance we introduce the notion of quantitative resilience as the maximal ratio over all targets of the minimal reach times for the initial and malfunctioning systems.
+  Since quantitative resilience is then defined as four nested nonlinear optimization problems, we establish an efficient computation method for control systems with multiple integrators and nonsymmetric input sets.
+  Relying on control theory and on two specific geometric results we reduce the computation of quantitative resilience to a linear optimization problem. 
+  We illustrate our method on an octocopter.
+</div>
+<pre class="bibtex" id="integrators-bibtex">
+@article{bouvier2023quantitative,
+  title = {Quantitative resilience of generalized integrators},
+  author = {Jean-Baptiste Bouvier and Kathleen Xu and Melkior Ornik},
+  journal = {IEEE Transactions on Automatic Control},
+  year = {2023},
+  volume = {18},
+  pages = {7591-7600},
+  doi = {10.1109/TAC.2023.3286942}
+}
+</pre>
+        
+      
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pics/Automatica_pic.jpg" alt="pic from paper" width="200" >
+  </div>
+  <div class="column right">
+    <em>Resilience of Linear Systems to Partial Loss of Control Authority</em> <br>
+    <strong>Jean-Baptiste Bouvier</strong>, Melkior Ornik <br>
+    <a href="https://www.sciencedirect.com/science/article/pii/S0005109823001383" target="_blank" rel="noopener noreferrer">Automatica</a>, 2023 <br>
+    <div class="links">
+		<a class="button-link" onclick="toggleDisplay('ECC_ext-abstract')"><span class="button"><i class="fas fa-list"></i> Abstract</span></a>
+		<a class="button-link" onclick="toggleDisplay('ECC_ext-bibtex')"><span class="button"><i class="fas fa-magnifying-glass"></i> Bibtex</span></a>
+		<a class="button-link" href="{{ site.baseurl }}/assets/PDFs/Resilience_of_Linear_Systems__ECC_extended_.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-pdf"></i> Pdf</span>
+		</a>
+		<a class="button-link" href="https://github.com/Jean-BaptisteBouvier/Resilience-of-Linear-Systems" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fab fa-github"></i> Code</span>
+		</a>
+		<a class="button-link" href="https://arxiv.org/abs/2209.08034" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="ai ai-arxiv"></i> ArXiv</span>
+		</a>	
+		<i class="ai ai-google-scholar"></i> Cited by <a href='' id='Resilience of linear systems to partial loss of control authority' target="_blank" rel="noopener noreferrer">0</a>
+	</div>
+  </div>
+</div>
+<div id="ECC_ext-abstract" class="abstract">
+  After a loss of control authority over thrusters of the Nauka module, the International Space Station lost attitude control for 45 minutes with potentially disastrous consequences.
+  Motivated by this scenario, we investigate the continued capability of control systems to perform their task despite partial loss of authority over their actuators.
+  We say that a system is resilient to such a malfunction if for any undesirable inputs and any target state there exists an admissible control driving the state to the target.
+  Building on controllability conditions and differential games theory, we establish a necessary and sufficient condition for the resilience of linear systems.
+  As their task might be time-constrained, ensuring completion alone is not sufficient.
+  We also want to estimate how much slower the malfunctioning system is compared to its nominal performance. 
+  Relying on Lyapunov theory we derive analytical bounds on the reach times of the nominal and malfunctioning systems in order to quantify their resilience.
+  We illustrate our work on the ADMIRE fighter jet model and on a temperature control system.
+</div> 
+<pre id="ECC_ext-bibtex" class="bibtex">
+@article{bouvier2023resilience,
+  title = {Resilience of linear systems to partial loss of control authority},
+  author = {Jean-Baptiste Bouvier and Melkior Ornik},
+  journal = {Automatica},
+  year = {2023},
+  volume = {152},
+  pages = {110985},
+  doi = {10.1016/j.automatica.2023.110985}
+}
+</pre>
+
+      
+        
+      
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pics/Design_pic.png" alt="pic from paper" width="200" >
+  </div>
+  <div class="column right">
+    <em>Designing Resilient Linear (Driftless) Systems</em><br>
+    <strong>Jean-Baptiste Bouvier</strong>, Melkior Ornik <br>
+    <a href="https://ieeexplore.ieee.org/document/9744569" target="_blank" rel="noopener noreferrer">IEEE Transactions on Automatic Control</a>, 2022 <br>
+    <div class="links">
+		<a class="button-link" onclick="toggleDisplay('design-abstract')"><span class="button"><i class="fas fa-list"></i> Abstract</span></a>
+		<a class="button-link" onclick="toggleDisplay('design-bibtex')"><span class="button"><i class="fas fa-magnifying-glass"></i> Bibtex</span></a>
+		<a class="button-link" href="{{ site.baseurl }}/assets/PDFs/Designing_Resilient_Linear_Driftless_Systems__arXiv_.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-pdf"></i> Pdf</span>
+		</a>
+		<a class="button-link" href="https://github.com/Jean-BaptisteBouvier/Designing-Resilient-Linear-Systems" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fab fa-github"></i> Code</span>
+		</a>
+		<a class="button-link" href="https://arxiv.org/abs/2006.13820" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="ai ai-arxiv"></i> ArXiv</span>
+		</a>	
+		<i class="ai ai-google-scholar"></i> Cited by <a href='' id='Designing resilient linear systems' target="_blank" rel="noopener noreferrer">0</a> + <a href='' id='Designing resilient linear driftless systems' target="_blank" rel="noopener noreferrer">0</a>
+	</div>
+  </div>
+</div>
+<div id="design-abstract" class="abstract">
+  Critical systems must be designed resilient to malfunctions and especially to a loss of control authority over actuators.
+  This malfunction considers actuators producing uncontrolled and possibly undesirable outputs.
+  We investigate the design of resilient linear systems capable of reaching their target even after such a malfunction.
+  In contrast with the settings considered by robust control and fault-tolerant control, we consider undesirable but observable inputs of the same magnitude as controls since they are produced by a faulty actuator belonging to the system.
+  The control inputs can then depend on these undesirable inputs.
+  Building on our previous work, we focus on designing resilient systems able to withstand the loss of one or multiple actuators.
+  Since resilience refers to the existence of a control law driving the state to the target, we naturally continue with the synthesis of such a control law.
+  We conclude with the application of our theory to the ADMIRE fighter jet model.
+</div>
+<div id="design-bibtex" class="bibtex">
+<pre><code>
+@article{bouvier2022design,  
+  title = {Designing resilient linear systems},   
+  author = {Jean-Baptiste Bouvier and Melkior Ornik},    
+  journal = {IEEE Transactions on Automatic Control},    
+  year = {2022},   
+  volume = {67},  
+  number = {9},  
+  pages = {4832 -- 4837}  
+}
+</code></pre>
+</div>
+        
+        
+      
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pics/JOTA_pic.PNG" alt="pic from paper" width="200" >
+  </div>
+  <div class="column right">
+    <em>The Maximax Minimax Quotient Theorem</em><br>
+    <strong>Jean-Baptiste Bouvier</strong>, Melkior Ornik <br>
+    <a href="https://doi.org/10.1007/s10957-022-02008-z" target="_blank" rel="noopener noreferrer">Journal of Optimization Theory and Applications</a>, 2022 <br>
+	<div class="links">
+		<a class="button-link" onclick="toggleDisplay('maximax-abstract')"><span class="button"><i class="fas fa-list"></i> Abstract</span></a>
+		<a class="button-link" onclick="toggleDisplay('maximax-bibtex')"><span class="button"><i class="fas fa-magnifying-glass"></i> Bibtex</span></a>
+		<a class="button-link" href="{{ site.baseurl }}/assets/PDFs/Maximax_Minimax_Quotient_Theorem__arXiv_.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-pdf"></i> Pdf</span>
+		</a>
+		<a class="button-link" href="https://github.com/Jean-BaptisteBouvier/Maximax-Minimax" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fab fa-github"></i> Code</span>
+		</a>
+		<a class="button-link" href="https://arxiv.org/abs/2104.15025" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="ai ai-arxiv"></i> ArXiv</span>
+		</a>	
+		<i class="ai ai-google-scholar"></i> Cited by <a href='' id='The Maximax Minimax Quotient Theorem' target="_blank" rel="noopener noreferrer">0</a>
+	</div>
+  </div>
+</div>
+<div id="maximax-abstract" class="abstract">
+  We present an optimization problem emerging from optimal control theory and situated at the intersection of fractional programming and linear max-min programming on polytopes.
+  A naive solution would require solving four nested, possibly nonlinear, optimization problems.
+  Instead, relying on numerous geometric arguments we determine an analytical solution to this problem.
+  In the course of proving our main theorem we also establish another optimization result stating that the minimum of a specific minimax optimization is located at a vertex of the constraint set.
+</div>
+<div id="maximax-bibtex" class="bibtex">
+<pre><code>
+@article{bouvier2022maximax,  
+  title = {The maximax minimax quotient theorem},   
+  author = {Jean-Baptiste Bouvier and Melkior Ornik},      
+  journal = {Journal of Optimization Theory and Applications},
+  year = {2022},
+  volume = {192},
+  pages = {1084 -- 1101},
+  publisher = {Springer},
+  doi = {10.1007/s10957-022-02008-z}
+}
+</code></pre>
+</div>
+  
+  
+
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pics/Tiago_pic.PNG" alt="pic from paper" width="200" >
+  </div>
+  <div class="column right">
+    <em>Spacecraft Trajectory Tracking and Parameter Estimation around a Splitting Contact Binary Asteroid</em><br>
+    Tiago Silva, <strong>Jean-Baptiste Bouvier</strong>, Kathleen Xu, Masatoshi Hirabayashi, Koki Ho <br>
+    <a href="https://www.sciencedirect.com/science/article/pii/S0094576520301259" target="_blank" rel="noopener noreferrer">Acta Astronautica</a>, 2020 <br>
+	<div class="links">
+		<a class="button-link" onclick="toggleDisplay('asteroid-abstract')"><span class="button"><i class="fas fa-list"></i> Abstract</span></a>
+		<a class="button-link" onclick="toggleDisplay('asteroid-bibtex')"><span class="button"><i class="fas fa-magnifying-glass"></i> Bibtex</span></a>		
+		<i class="ai ai-google-scholar"></i> Cited by <a href='' id='Spacecraft trajectory tracking and parameter estimation around a splitting contact binary asteroid' target="_blank" rel="noopener noreferrer">0</a>
+	</div>
+  </div>
+</div>
+<div id="asteroid-abstract" class="abstract">
+  Increasing interest in asteroid mining and in-situ resource utilization will lead to an increase in asteroid surface operations.
+  The geophysical properties of asteroids are often unknown and play a significant role in the resulting gravitational fields.
+  Surface operations such as mining may significantly alter the asteroid's structure or, in the case of contact binary asteroids, cause the asteroid to split depending on the rotational condition.
+  The coupled problem of estimating unknown parameters of a splitting contact-binary system and controlling a spacecraft's trajectory in the system's vicinity is investigated.
+  An indirect adaptive control scheme is utilized to simultaneously meet both objectives. 
+  The results are compared with the traditional 2-body controller and the improvement enabled by the proposed scheme is demonstrated.
+</div>
+<div id="asteroid-bibtex" class="bibtex">
+<pre><code>
+@article{splitting_asteroid,
+  title = {Spacecraft trajectory tracking and parameter estimation around a splitting contact binary asteroid},
+  author = {Silva, Tiago and Bouvier, Jean-Baptiste and Xu, Kathleen and Hirabayashi, Masatoshi and Ho, Koki},
+  journal = {Acta Astronautica},
+  volume = {171},
+  pages = {280 -- 289},
+  year = {2020},
+  publisher = {Elsevier},
+  doi ={10.1016/j.actaastro.2020.02.052}
+}
+</code></pre>
+</div>
+ 
+
+
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pics/Bindu_pic.png" alt="pic from paper" width="200" >
+  </div>
+  <div class="column right">
+    <em>Preliminary Design of Low-Energy, Low-Thrust Transfers to Halo Orbits using Feedback Control</em><br>
+    Bindu Jagannatha, <strong>Jean-Baptiste Bouvier</strong>, Koki Ho <br>
+    <a href="https://arc.aiaa.org/doi/full/10.2514/1.G003759" target="_blank" rel="noopener noreferrer">Journal of Guidance, Control and Dynamics</a>, 2019 <br>
+	<div class="links">
+		<a class="button-link" onclick="toggleDisplay('halo-abstract')"><span class="button"><i class="fas fa-list"></i> Abstract</span></a>
+		<a class="button-link" onclick="toggleDisplay('halo-bibtex')"><span class="button"><i class="fas fa-magnifying-glass"></i> Bibtex</span></a>
+		<a class="button-link" href="{{ site.baseurl }}/assets/PDFs/Preliminary_Design_of_Low_Energy_Low_Thrust_Transfers_to_Halo_Orbits_using_Feedback_Control__13350576qwkhqypqjjvj_.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-pdf"></i> Pdf</span>
+		</a>
+		<i class="ai ai-google-scholar"></i> Cited by <a href='' id='Preliminary design of low-energy, low-thrust transfers to halo orbits using feedback control' target="_blank" rel="noopener noreferrer">0</a>
+	</div>
+  </div>
+</div>
+<div id="halo-abstract" class="abstract">
+  Calculating low-thrust trajectories that connect geocentric orbits to Earth-moon halo orbits involves designing the many-revolution thrust arc required to depart Earth vicinity.
+  Existing methods are based on solving the corresponding optimal control problem and hence are computationally expensive, involve providing hard-to-obtain initial guesses, and do not lend themselves well to quick parametric trade studies.
+  In this paper, a stochastic optimization algorithm is coupled with a Lyapunov feedback control law to explore the solution space for designing Earth-to-halo low-energy low-thrust trajectories.
+  While the objective is to minimize the fuel consumed for the transfer, the time of flight is constrained so as to optimally distribute the coast time between the low-thrust escape spiral and the low-energy arc.
+  Engines are assumed to have a constant specific impulse and provide constant thrust throughout the transfer. The results obtained from this method are then compared with other available reference solutions in order to quantify its effectiveness in designing such transfers.
+  Favorable comparisons thus obtained demonstrate the utility of the proposed method in calculating almost-optimal solutions, combined with a large improvement in computation time.
+</div>
+<div id="halo-bibtex" class="bibtex">
+<pre><code>
+@article{bindu2019preliminary,
+  author = {Jagannatha, Bindu B. and Bouvier, Jean-Baptiste and Ho, Koki},
+  title = {Preliminary design of low-energy, low-thrust transfers to halo orbits using feedback control},
+  journal = {Journal of Guidance, Control, and Dynamics},
+  volume = {42},
+  number = {2},
+  pages = {260-271},
+  year = {2019},
+  doi = {10.2514/1.G003759}
+ }
+</code></pre>
+</div>
+
+
+  
+  
+  
+<hr style="margin-top:1cm;">
+<h2 id="Peer">Peer-reviewed conference papers</h2>
+
+
+
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pics/CDC24_pic.png" alt="pic from paper" width="200" >
+  </div>
+  <div class="column right">
+    <em>Learning to Provably Satisfy High Relative Degree Constraints for Black-Box Systems</em><br>
+    <strong>Jean-Baptiste Bouvier</strong>, Kartik Nagpal, Negar Mehr <br>
+    <!--a href="https://" target="_blank" rel="noopener noreferrer"-->IEEE Conference on Decision and Control (CDC)<!--/a-->, 2024 <br>
+	<div class="links">
+		<a class="button-link" onclick="toggleDisplay('CDC24-abstract')"><span class="button"><i class="fas fa-list"></i> Abstract</span></a>
+		<a class="button-link" onclick="toggleDisplay('CDC24-bibtex')"><span class="button"><i class="fas fa-magnifying-glass"></i> Bibtex</span></a>
+		<a class="button-link" href="{{ site.baseurl }}/assets/PDFs/CDC24.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-pdf"></i> Pdf</span>
+		</a>
+		<a class="button-link" href="https://github.com/Jean-BaptisteBouvier/" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fab fa-github"></i> Code</span>
+		</a>
+		<a class="button-link" href="https://arxiv.org/abs/24" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="ai ai-arxiv"></i> ArXiv</span>
+		</a>	
+		<i class="ai ai-google-scholar"></i> Cited by <a href='' id='Learning to Provably Satisfy High Relative Degree Constraints for Black-Box Systems' target="_blank" rel="noopener noreferrer">0</a>
+	</div>
+  </div>
+</div>
+<div id="CDC24-abstract" class="abstract">
+   In this paper, we develop a method for learning a control policy guaranteed to satisfy an affine state constraint of high relative degree in closed loop with a black-box system.
+   Previous reinforcement learning (RL) approaches to satisfy safety constraints either require access to the system model, or assume control affine dynamics, or only discourage violations with reward shaping.
+   Only recently have these issues been addressed with POLICEd RL, which guarantees constraint satisfaction for black-box systems.
+   However, this previous work can only enforce constraints of relative degree 1.
+   To address this gap, we build a novel RL algorithm explicitly designed to enforce an affine state constraint of high relative degree in closed loop with a black-box control system.
+   Our key insight is to make the learned policy be affine around the unsafe set and to use this affine region to dissipate the inertia of the high relative degree constraint.
+   We prove that such policies guarantee constraint satisfaction for deterministic systems while being agnostic to the choice of the RL training algorithm.
+   Our results demonstrate the capacity of our approach to enforce hard constraints in the Gym inverted pendulum and on a space shuttle landing simulation.    
+</div>
+<div id="CDC24-bibtex" class="bibtex">
+<pre><code>
+@inproceedings{bouvier2024learning,
+  title = {Learning to Provably Satisfy High Relative Degree Constraints for Black-Box Systems},
+  author = {Jean-Baptiste Bouvier and Kartik Nagpal and Negar Mehr},
+  booktitle = {IEEE Conference on Decision and Control (CDC)},
+  year = {2024},
+  pages = {},
+  doi = {}
+}
+</code></pre>
+</div>
+
+
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pics/POLICEd_pic.png" alt="pic from paper" width="200" >
+  </div>
+  <div class="column right">
+    <em>POLICEd RL: Learning Closed-Loop Robot Control Policies with Provable Satisfaction of Hard Constraints</em><br>
+    <strong>Jean-Baptiste Bouvier</strong>, Kartik Nagpal, Negar Mehr <br>
+    <!--a href="https://" target="_blank" rel="noopener noreferrer"-->Robotics: Science and Systems (RSS)<!--/a-->, 2024 <br>
+	<div class="links">
+		<a class="button-link" onclick="toggleDisplay('policed-abstract')"><span class="button"><i class="fas fa-list"></i> Abstract</span></a>
+		<a class="button-link" onclick="toggleDisplay('policed-bibtex')"><span class="button"><i class="fas fa-magnifying-glass"></i> Bibtex</span></a>
+		<a class="button-link" href="{{ site.baseurl }}/assets/PDFs/POLICEd_RL_ArXiv.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-pdf"></i> Pdf</span>
+		</a>
+		<a class="button-link" href="https://github.com/labicon/POLICEd-RL" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fab fa-github"></i> Code</span>
+		</a>
+		<a class="button-link" href="https://arxiv.org/abs/2403.13297" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="ai ai-arxiv"></i> ArXiv</span>
+		</a>	
+		<a class="button-link" href="https://iconlab.negarmehr.com/POLICEd-RL" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-globe"></i> Website</span>
+		</a>
+		<a class="button-link" href="{{ site.baseurl }}/assets/blog_posts/policed_RL" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-scroll"></i> Blog</span>
+		</a>
+		<i class="ai ai-google-scholar"></i> Cited by <a href='' id='POLICEd RL: Learning Closed-Loop Robot Control Policies with Provable Satisfaction of Hard Constraints' target="_blank" rel="noopener noreferrer">0</a>
+	</div>
+  </div>
+</div>
+<div id="policed-abstract" class="abstract">
+   In this paper, we seek to learn a robot policy guaranteed to satisfy state constraints.
+   To encourage constraint satisfaction, existing RL algorithms typically rely on Constrained Markov Decision Processes and discourage constraint violations through reward shaping.
+   However, such <em>soft constraints</em> cannot offer safety guarantees.
+   To address this gap, we propose <strong>POLICEd RL</strong>, a novel RL algorithm explicitly designed to enforce affine <em>hard constraints</em> in closed-loop with a black-box environment.
+   Our key insight is to make the learned policy be affine around the unsafe set and to use this affine region as a repulsive buffer to prevent trajectories from violating the constraint.
+   We prove that such policies exist and guarantee constraint satisfaction.
+   Our proposed framework is applicable to both systems with continuous and discrete state and action spaces and is agnostic to the choice of the RL training algorithm.
+   Our results demonstrate the capacity of POLICEd RL to enforce hard constraints in robotic tasks while significantly outperforming existing methods.    
+</div>
+<div id="policed-bibtex" class="bibtex">
+<pre><code>
+@inproceedings{bouvier2024policed,
+  title = {POLICEd RL: Learning Closed-Loop Robot Control Policies with Provable Satisfaction of Hard Constraints},
+  author = {Jean-Baptiste Bouvier and Kartik Nagpal and Negar Mehr},
+  booktitle = {Robotics: Science and Systems (RSS)},
+  year = {2024},
+  pages = {},
+  doi = {}
+}
+</code></pre>
+</div>
+
+
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pics/ISC_pic.PNG" alt="pic from paper" width="200" >
+  </div>
+  <div class="column right">
+    <em>Assured System-Level Resilience for Guaranteed Disaster Response</em><br>
+    Melkior Ornik, <strong>Jean-Baptiste Bouvier</strong> <br>
+    <a href="https://ieeexplore.ieee.org/document/9922438" target="_blank" rel="noopener noreferrer">8<sup>th</sup> IEEE International Smart Cities Conference</a>, 2022 <br>
+	<div class="links">
+		<a class="button-link" onclick="toggleDisplay('disaster-abstract')"><span class="button"><i class="fas fa-list"></i> Abstract</span></a>
+		<a class="button-link" onclick="toggleDisplay('disaster-bibtex')"><span class="button"><i class="fas fa-magnifying-glass"></i> Bibtex</span></a>
+		<a class="button-link" href="{{ site.baseurl }}/assets/PDFs/ISC2_Resilience.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-pdf"></i> Pdf</span>
+		</a>
+		<i class="ai ai-google-scholar"></i> Cited by <a href='' id='Assured System-Level Resilience for Guaranteed Disaster Response' target="_blank" rel="noopener noreferrer">0</a>
+	</div>
+  </div>
+</div>
+<div id="disaster-abstract" class="abstract">
+  Resilience of urban infrastructure to sudden, system-wide, potentially catastrophic events is a critical need across domains.
+  The growing connectivity of infrastructure, including its cyber-physical components which can be controlled in real time, offers an attractive path towards rapid adaptation to adverse events and adjustment of system objectives.
+  However, existing work in the field often offers piecemeal approaches to particular scenarios.
+  On the other hand, abstract work on controlled complex systems focuses on attempting to adapt to the changes in the system dynamics or environment, but without understanding that the system may simply not be able to perform its original task after an adverse event.
+  To address this challenge, this programmatic paper proposes a vision for a new paradigm of infrastructure resilience. Such a framework treats infrastructure across domains through a unified theory of controlled dynamical systems, but remains cognizant of the lack of knowledge about the system following a widespread adverse event and aims to identify the system's fundamental limits.
+  As a result, it will enable the infrastructure operator to assess and assure system performance following an adverse event, even if the exact nature of the event is not yet known.
+  Motivated by ongoing work on some facets of the broader problem of assured resilience, in this paper we identify promising early results, challenges that motivate the development of new theory, and possible paths forward for the proposed effort.
+</div>
+<div id="disaster-bibtex" class="bibtex">
+<pre><code>
+@inproceedings{ornik2022assured,
+  title = {Assured system-level resilience for guaranteed disaster response},
+  author = {Melkior Ornik and Jean-Baptiste Bouvier},
+  booktitle = {2022 IEEE International Smart Cities Conference},
+  year = {2022},
+  pages = {1 -- 4},
+  doi = {10.1109/ISC255366.2022.9922438}
+}
+</code></pre>
+</div> 
+      
+  
+  
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pics/ECC_pic.jpg" alt="pic from paper" width="200" >
+  </div>
+  <div class="column right">
+    <em>Quantitative Resilience of Linear Systems</em><br>
+    <strong>Jean-Baptiste Bouvier</strong>, Melkior Ornik <br>
+    <a href="https://ieeexplore.ieee.org/document/9838147" target="_blank" rel="noopener noreferrer">20<sup>th</sup> European Control Conference</a>, 2022 <br>
+	<div class="links">
+		<a class="button-link" onclick="toggleDisplay('ECC-abstract')"><span class="button"><i class="fas fa-list"></i> Abstract</span></a>
+		<a class="button-link" onclick="toggleDisplay('ECC-bibtex')"><span class="button"><i class="fas fa-magnifying-glass"></i> Bibtex</span></a>
+		<a class="button-link" href="{{ site.baseurl }}/assets/PDFs/Quantitative_Resilience_of_Linear_Systems__ECC_.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-pdf"></i> Pdf</span>
+		</a>
+		<a class="button-link" href="https://arxiv.org/abs/2201.12278" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="ai ai-arxiv"></i> ArXiv</span>
+		</a>	
+		<a class="button-link" href="{{site.baseurl}}/assets/Slides/ECC_2022_presentation.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-powerpoint"></i> Slides</span>
+		</a>
+		<i class="ai ai-google-scholar"></i> Cited by <a href='' id='Quantitative Resilience of Linear Systems' target="_blank" rel="noopener noreferrer">0</a>
+	</div>
+  </div>
+</div>
+<div id="ECC-abstract" class="abstract">
+  Actuator malfunctions may have disastrous consequences for systems not designed to mitigate them. 
+  We focus on the loss of control authority over actuators, where some actuators are uncontrolled but remain fully capable. 
+  To counteract the undesirable outputs of these malfunctioning actuators, we use real-time measurements and redundant actuators. 
+  In this setting, a system that can still reach its target is deemed resilient. 
+  To quantify the resilience of a system, we compare the shortest time for the undamaged system to reach the target with the worst-case shortest time for the malfunctioning system to reach the same target, i.e., when the malfunction makes that time the longest.
+  Contrary to prior work on driftless linear systems, the absence of analytical expression for time-optimal controls of general linear systems prevents an exact calculation of quantitative resilience.
+  Instead, relying on Lyapunov theory we derive analytical bounds on the nominal and malfunctioning reach times in order to bound quantitative resilience. 
+  We illustrate our work on a temperature control system.
+</div>
+<div id="ECC-bibtex" class="bibtex">
+<pre><code>
+@inproceedings{bouvier2022quantitative_ECC,
+  title = {Quantitative resilience of linear systems},
+  author = {Jean-Baptiste Bouvier and Melkior Ornik},
+  booktitle = {20th European Control Conference},
+  year = {2022},
+  pages = {485 -- 490},
+  doi = {10.23919/ECC55457.2022.9838147}
+}
+</code></pre>
+</div>   
+        
+      
+ 
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pics/ACC_pic.JPG" alt="pic from paper" width="200">
+  </div>
+  <div class="column right">
+    <em>Distributed Transient Safety Verification via Robust Control Invariant Sets: A Microgrid Application</em><br>
+    <strong>Jean-Baptiste Bouvier</strong>, Sai Pushpak Nandanoori, Melkior Ornik, Soumya Kundu <br>
+    <a href="https://ieeexplore.ieee.org/document/9867323" target="_blank" rel="noopener noreferrer">American Control Conference</a>, 2022 <br>
+	<div class="links">
+		<a class="button-link" onclick="toggleDisplay('ACC-abstract')"><span class="button"><i class="fas fa-list"></i> Abstract</span></a>
+		<a class="button-link" onclick="toggleDisplay('ACC-bibtex')"><span class="button"><i class="fas fa-magnifying-glass"></i> Bibtex</span></a>
+		<a class="button-link" href="{{ site.baseurl }}/assets/PDFs/ACC long.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-pdf"></i> Pdf</span>
+		</a>
+		<a class="button-link" href="https://arxiv.org/abs/2202.09320" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="ai ai-arxiv"></i> ArXiv</span>
+		</a>
+		<a class="button-link" href="https://github.com/Jean-BaptisteBouvier/Microgrid-transient-safety" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fab fa-github"></i> Code</span>
+		</a>		
+		<a class="button-link" href="{{site.baseurl}}/assets/Slides/ACC Presentation.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-powerpoint"></i> Slides</span>
+		</a>
+		<i class="ai ai-google-scholar"></i> Cited by <a href='' id='Distributed Transient Safety Verification via Robust Control Invariant Sets: A Microgrid Application' target="_blank" rel="noopener noreferrer">0</a>
+	</div>
+  </div>
+</div>
+<div id="ACC-abstract" class="abstract">
+  Modern safety-critical energy infrastructures are operated in a hierarchical and modular control framework allowing only limited data exchange between modules.
+  In this context, to assure system-wide safety each module must synthesize and communicate constraints on the values of exchanged data.
+  To ensure transient safety in inverter-based microgrids, we develop a set invariance-based distributed safety verification algorithm for each inverter module.
+  Applying Nagumo's invariance condition, we construct a robust polynomial optimization problem to jointly search for safety-admissible set of control set-points and design parameters, under allowable disturbances from neighbors. 
+  We solve the verification problem with sum-of-squares programming and we perform numerical simulations using grid-forming inverters to illustrate our method.
+</div>
+<div id="ACC-bibtex" class="bibtex">
+<pre><code>
+@inproceedings{bouvier2022distributed,
+  title = {Distributed transient safety verification via robust control invariant sets: a microgrid application},
+  author = {Jean-Baptiste Bouvier and Sai Pushpak Nandanoori and Melkior Ornik and Soumya Kundu},
+  booktitle = {2022 American Control Conference},
+  year = {2022},
+  pages = {2202 -- 2207},
+  doi = {10.23919/ACC53348.2022.9867323}
+}
+</code></pre>
+</div>
+
+
+
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pics/SIAM_pic.PNG" alt="pic from paper" width="200" >
+  </div>
+  <div class="column right">
+    <em>Quantitative Resilience of Linear Driftless Systems</em><br>
+    <strong>Jean-Baptiste Bouvier</strong>, Kathleen Xu, Melkior Ornik <br>
+    <a href="https://epubs.siam.org/doi/abs/10.1137/1.9781611976847.5" target="_blank" rel="noopener noreferrer">SIAM Conference on Control and its Applications</a>, 2021 <br>
+	<div class="links">
+		<a class="button-link" onclick="toggleDisplay('SIAM-abstract')"><span class="button"><i class="fas fa-list"></i> Abstract</span></a>
+		<a class="button-link" onclick="toggleDisplay('SIAM-bibtex')"><span class="button"><i class="fas fa-magnifying-glass"></i> Bibtex</span></a>
+		<a class="button-link" href="{{ site.baseurl }}/assets/PDFs/Quantitative_Resilience_of_Linear_Driftless_Systems__SIAM_CT_.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-pdf"></i> Pdf</span>
+		</a>
+		<a class="button-link" href="https://arxiv.org/abs/2101.12063" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="ai ai-arxiv"></i> ArXiv</span>
+		</a>
+		<a class="button-link" href="https://github.com/Jean-BaptisteBouvier/Quantitative-Resilience" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fab fa-github"></i> Code</span>
+		</a>		
+		<a class="button-link" href="{{site.baseurl}}/assets/Slides/SIAM_CT_21_Presentation.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-powerpoint"></i> Slides</span>
+		</a>
+		<i class="ai ai-google-scholar"></i> Cited by <a href='' id='Quantitative resilience of linear driftless systems' target="_blank" rel="noopener noreferrer">0</a>
+	</div>
+  </div>
+</div>
+<div id="SIAM-abstract" class="abstract">
+  This paper introduces the notion of quantitative resilience of a control system.
+  Following prior work, we study linear driftless systems enduring a loss of control authority over some of their actuators.
+  Such a malfunction results in actuators producing possibly undesirable inputs over which the controller has real-time readings but no control.
+  By definition, a system is resilient if it can still reach a target after a partial loss of control authority.
+  However, after such a malfunction, a resilient system might be significantly slower to reach a target compared to its initial capabilities.
+  We quantify this loss of performance through the new concept of quantitative resilience.
+  We define such a metric as the maximal ratio of the minimal times required to reach any target for the initial and malfunctioning systems.
+  Naive computation of quantitative resilience directly from the definition is a complex task as it requires solving four nested, possibly nonlinear, optimization problems.
+  The main technical contribution of this work is to provide an efficient method to compute quantitative resilience.
+  Relying on control theory and on two novel geometric results we reduce the computation of quantitative resilience to a single linear optimization problem.
+  We demonstrate our method on an opinion dynamics scenario.
+</div>
+<div id="SIAM-bibtex" class="bibtex">
+<pre><code>
+@inproceedings{bouvier2021quantitative,
+  title = {Quantitative resilience of linear driftless systems},
+  author = {Jean-Baptiste Bouvier and Kathleen Xu and Melkior Ornik},
+  booktitle = {SIAM Conference on Control and its Applications},
+  year = {2021},
+  pages = {32 -- 39},
+  doi = {10.1137/1.9781611976847.5}
+}
+</code></pre>
+</div>
+
+
+
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pics/IFAC_pic.PNG" alt="pic from paper" width="200" >
+  </div>
+  <div class="column right">
+    <em>Resilient Reachability for Linear Systems</em><br>
+    <strong>Jean-Baptiste Bouvier</strong>, Melkior Ornik <br>
+    <a href="https://www.sciencedirect.com/science/article/pii/S240589632030656X" target="_blank" rel="noopener noreferrer">21<sup>st</sup> IFAC World Congress</a>, 2020 <br>
+	<div class="links">
+		<a class="button-link" onclick="toggleDisplay('IFAC-abstract')"><span class="button"><i class="fas fa-list"></i> Abstract</span></a>
+		<a class="button-link" onclick="toggleDisplay('IFAC-bibtex')"><span class="button"><i class="fas fa-magnifying-glass"></i> Bibtex</span></a>
+		<a class="button-link" href="{{ site.baseurl }}/assets/PDFs/Resilient_Reachability_for_Linear_Systems__IFAC_.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-pdf"></i> Pdf</span>
+		</a>	
+		<a class="button-link" href="{{site.baseurl}}/assets/Slides/IFAC_presentation.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-powerpoint"></i> Slides</span>
+		</a>
+		<i class="ai ai-google-scholar"></i> Cited by <a href='' id='Resilient reachability for linear systems' target="_blank" rel="noopener noreferrer">0</a>
+	</div>
+  </div>
+</div>
+<div id="IFAC-abstract" class="abstract">
+  A fault-tolerant system is able to reach its goal even when some of its components are malfunctioning. 
+  This paper examines tolerance to a specific type of malfunction: the loss of control authority over actuators.
+  Namely, we investigate whether the desired target set for a linear system remains reachable even after such a loss of authority. 
+  We frame this problem as the verification of whether a set is reachable from a certain initial state under any undesirable input, without prior knowledge of future undesirable inputs.
+  Building on previous work on reachability with undesirable inputs, this paper develops a reachability condition for linear systems, and obtains a formula that describes reachability of the goal set for driftless linear systems by computing minimum of a concave-convex objective function.
+  From this formulation we establish two novel sufficient conditions for reachability of the goal set.
+</div>
+<div id="IFAC-bibtex" class="bibtex">
+<pre><code>
+@inproceedings{bouvier2020resilient,
+  title = {Resilient reachability for linear systems},
+  author = {Jean-Baptiste Bouvier and Melkior Ornik},
+  booktitle = {21st IFAC World Congress},
+  pages = {4409 -- 4414},
+  year = {2020},
+  doi = {10.1016/j.ifacol.2020.12.372}
+}
+</code></pre>
+</div>
+
+
+  
+  
+  
+  
+<hr style="margin-top:1cm;">
+<h2 id="Nonpeer">Other conference papers</h2>
+
+
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pics/AAS_pic.jpg" alt="pic from paper" width="200" >
+  </div>
+  <div class="column right">
+    <em>Resilience of Orbital Inspections to Partial Loss of Control Authority of the Chaser Satellite</em><br>
+    <strong>Jean-Baptiste Bouvier</strong>, Himmat Panag, Robyn Woollands, Melkior Ornik <br>
+    <!--a href="" target="_blank" rel="noopener noreferrer"-->AAS/AIAA Astrodynamics Specialist Conference<!--/a-->, 2022 <br>
+	<div class="links">
+		<a class="button-link" onclick="toggleDisplay('AAS-abstract')"><span class="button"><i class="fas fa-list"></i> Abstract</span></a>
+		<a class="button-link" onclick="toggleDisplay('AAS-bibtex')"><span class="button"><i class="fas fa-magnifying-glass"></i> Bibtex</span></a>
+		<a class="button-link" href="{{ site.baseurl }}/assets/PDFs/Resilience_of_Orbital_Inspections_to_Partial_Loss_of_Control_Authority_of_the_Chaser_Satellite.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-pdf"></i> Pdf</span>
+		</a>	
+		<a class="button-link" href="{{site.baseurl}}/assets/Slides/AAS Presentation.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-powerpoint"></i> Slides</span>
+		</a>
+		<i class="ai ai-google-scholar"></i> Cited by <a href='' id='Resilience of orbital inspections to partial loss of control authority of the chaser satellite' target="_blank" rel="noopener noreferrer">0</a>
+	</div>
+  </div>
+</div>
+<div id="AAS-abstract" class="abstract">
+  The growing demand for orbital inspections can only be met if these missions guarantee not to endanger the target satellite. 
+  To address this issue we study how to make the chaser satellite resistant to a partial loss of control authority over its thrusters. 
+  This malfunction is characterized by some thrusters of the spacecraft firing in an uncontrolled and thus possibly undesirable manner. 
+  Because of actuation delays, these undesirable thrust inputs cannot be canceled in real-time. 
+  Instead, we first use resilience theory to show that a sufficiently overactuated spacecraft can still reach any location even after losing control of a thruster. 
+  We then calculate the safety distance ensuring that the malfunctioning chaser satellite will not breach the keep-out sphere around the target satellite.
+  We employ a convex solver to generate a safe minimal-fuel reference trajectory to perform the inspection mission.
+  Relying on state prediction, adaptive trajectory tracking and PID control the malfunctioning spacecraft is then able to follow the reference trajectory. 
+  We thus demonstrate that an orbital inspection mission can be carried out safely by a spacecraft enduring actuation delay and a loss of control authority over one of its thrusters.
+</div>
+<div id="AAS-bibtex" class="bibtex">
+<pre><code>
+@inproceedings{bouvier2022resilience,
+  title = {Resilience of Orbital Inspections to Partial Loss of Control Authority over the Chaser Satellite},
+  author = {Jean-Baptiste Bouvier and Himmat Panag and Robyn Woollands and Melkior Ornik},
+  booktitle = {2022 AAS/AIAA Astrodynamics Specialist Conference},
+  year = {2022}
+}
+</code></pre>
+</div>
+
+
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pics/DRO_pic.png" alt="pic from paper" width="200" >
+  </div>
+  <div class="column right">
+    <em>Strategies for Space Rendezvous on Lunar Distant Retrograde Orbits</em><br>
+    <strong>Jean-Baptiste Bouvier</strong>, Williams Zanga, Bastien Le Bihan, Stephanie Lizy-Destrez <br>
+    ISAE Supaero, 2017 <br>
+	<div class="links">
+		<a class="button-link" onclick="toggleDisplay('ISAE-abstract')"><span class="button"><i class="fas fa-list"></i> Abstract</span></a>
+		<a class="button-link" href="{{ site.baseurl }}/assets/PDFs/final_PIR_paper.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-pdf"></i> Pdf</span>
+		</a>
+		<i class="ai ai-google-scholar"></i> Cited by <a href='' id='Strategies for space rendezvous on Lunar Distant Retrograde Orbits' target="_blank" rel="noopener noreferrer">0</a>
+	</div>
+  </div>
+</div>
+<div id="ISAE-abstract" class="abstract">
+  This research is motivated by a possible deployment of an inhabited space station on a cislunar orbit.
+  This paper describes space rendezvous on Lunar Distant Retrograde Orbits (DRO).
+  More precisely, the core study of this research tackles the construction of a DRO, and the rendezvous itself.
+  Then further work has been conducted including safety analysis during the rendezvous operations and optimization of DRO computation.
+</div>
+
+
+
+
+<hr style="margin-top:1cm;">
+<h2 id="Theses">Theses</h2>
+
+  
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pics/PhD_pic.png" alt="pic from paper" width="200" >
+  </div>
+  <div class="column right">
+    <em>Guaranteed Resilience of Autonomous Systems to Loss of Control Authority over Actuators</em><br>
+    <strong>Jean-Baptiste Bouvier</strong> &nbsp;&nbsp;&nbsp; Advisor: Melkior Ornik <br>
+    Doctoral thesis. <a href="https://www.ideals.illinois.edu/items/127446" target="_blank" rel="noopener noreferrer">University of Illinois Urbana-Champaign</a>, 2023 <br>
+	<div class="links">
+		<a class="button-link" onclick="toggleDisplay('PhD-abstract')"><span class="button"><i class="fas fa-list"></i> Abstract</span></a>
+		<a class="button-link" onclick="toggleDisplay('PhD-bibtex')"><span class="button"><i class="fas fa-magnifying-glass"></i> Bibtex</span></a>
+		<a class="button-link" href="{{ site.baseurl }}/assets/PDFs/PhD_Thesis.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-pdf"></i> Pdf</span>
+		</a>		
+		<a class="button-link" href="{{site.baseurl}}/assets/Slides/Defense.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-powerpoint"></i> Slides</span>
+		</a>
+		<i class="ai ai-google-scholar"></i> Cited by <a href='' id='Guaranteed Resilience of Autonomous Systems to Loss of Control Authority over Actuators' target="_blank" rel="noopener noreferrer">0</a>
+	</div>
+  </div>
+</div>
+<div id="PhD-abstract" class="abstract">
+  After docking to the International Space Station (ISS), the Nauka module suffered a software error causing its thrusters to misfire.
+  In turn, these uncontrolled thrusters rotated the whole space station by 540° before being counteracted by other thrusters of the ISS.
+  Motivated by such a scenario, this thesis investigates the guaranteed resilience of autonomous systems to a similar class of malfunctions called partial loss of control authority over actuators.
+  These malfunctions are characterized by actuators producing uncontrolled and undesirable outputs instead of following the controller’s commands.
+  A loss of control authority can be caused, for instance, by a software bug as in the ISS example or by an adversarial takeover of some actuators of the system.
+  In this setting, we investigate the malfunctioning system's remaining capabilities to complete its mission in terms of resilient reachability and resilient trajectory tracking.
+  We also quantify the resilience of linear systems by comparing the reachability performance of the nominal dynamics with that of the worst-case malfunctioning dynamics.
+  We extend our resilience investigation to systems further inflicted with actuation delays preventing an immediate cancellation of the undesirable outputs.
+  We illustrate our theory on a wide range of applications including an octocopter, a fighter jet model, and an orbital inspection mission.
+</div>
+<div id="PhD-bibtex" class="bibtex">
+<pre><code>
+@phdthesis{bouvier2023phd,
+  author = {Jean-Baptiste Bouvier},
+  title = {Guaranteed resilience of autonomous systems to loss of control authority over actuators},
+  school = {University of Illinois Urbana-Champaign},
+  year = {2023}
+}
+</code></pre>
+</div>
+
+
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pics/MSc_pic.PNG" alt="pic from paper" width="200" >
+  </div>
+  <div class="column right">
+    <em>Orbit Control for a Spacecraft around a Splitting Contact Binary Asteroid</em><br>
+    <strong>Jean-Baptiste Bouvier</strong> &nbsp;&nbsp;&nbsp; Advisor: Koki Ho <br>
+    Master thesis. <a href="https://www.ideals.illinois.edu/items/109882" target="_blank" rel="noopener noreferrer">University of Illinois Urbana-Champaign</a>, 2018 <br>
+	<div class="links">
+		<a class="button-link" onclick="toggleDisplay('MSc-abstract')"><span class="button"><i class="fas fa-list"></i> Abstract</span></a>
+		<a class="button-link" onclick="toggleDisplay('MSc-bibtex')"><span class="button"><i class="fas fa-magnifying-glass"></i> Bibtex</span></a>
+		<a class="button-link" href="{{ site.baseurl }}/assets/PDFs/Master_Thesis.pdf" target="_blank" rel="noopener noreferrer">
+			<span class="button"><i class="fas fa-file-pdf"></i> Pdf</span>
+		</a>
+		<i class="ai ai-google-scholar"></i> Cited by <a href='' id='Orbit control for a spacecraft around a splitting contact binary asteroid' target="_blank" rel="noopener noreferrer">0</a>
+	</div>
+  </div>
+</div>
+<div id="MSc-abstract" class="abstract">
+  This thesis examines an orbit control problem for a spacecraft around a contact binary asteroid considering the dynamics of both the spacecraft and the asteroid itself.
+  It is known that approximately 15\% of the near-Earth asteroids are binary, and among these the fraction of contact binaries is between 6 and 10\%.
+  Most contact binary asteroids are constituted of an agglomeration of smaller boulders maintained together due to their internal gravity, which is a relatively unstable configuration.
+  Therefore, even a minor change in their mass distribution, like would be caused by the landing of mining machines, can result in a modification of the asteroid's structure including a landslide or a splitting.
+  Particularly, separation of the asteroid into two parts is problematic in terms of orbit control, because of the consequences on the gravitational field of the asteroid.
+  Traditional two-body orbital control methods cannot be applied to the missions to those asteroids because they do not consider the dynamic activities of the asteroids themselves.
+  This thesis proposes and evaluates a control method to follow a predefined path under unknown states of the splitting binary asteroid.
+</div>
+<div id="MSc-bibtex" class="bibtex">
+<pre><code>
+@mastersthesis{bouvier2018msc,
+  author = {Jean-Baptiste Bouvier},
+  title = {Orbit control for a spacecraft around a splitting contact binary asteroid},
+  school = {University of Illinois Urbana-Champaign},
+  year = {2018}
+}
+</code></pre>
+</div>  
+
+        
+
+  
+<!-- Commented model
+
+<div class="row">
+  <div class="column left">
+    <img src="{{ site.baseurl }}/assets/paper_pic.png" alt="pic from paper" width="200" >
+  </div>
+  <div class="column right">
+    <em>Title</em><br>
+    <strong>Jean-Baptiste Bouvier</strong>,  <br>
+    <a href="" target="_blank" rel="noopener noreferrer">Journal Name</a>, year <br>
+    <a onclick="toggleDisplay('paper1-abstract')">Abstract</a> |
+    <a onclick="toggleDisplay('paper1-bibtex')">Bibtex</a> |
+    <a href="{{site.baseurl}}/assets/PDFs/___.pdf" target="_blank" rel="noopener noreferrer">Pdf</a> |
+    <a href="https://arxiv.org/abs/___" target="_blank" rel="noopener noreferrer">ArXiv</a> |
+    <a href="https://github.com/Jean-BaptisteBouvier/___" target="_blank" rel="noopener noreferrer">GitHub</a> |
+    <a href="{{site.baseurl}}/assets/Slides/___.pdf" target="_blank" rel="noopener noreferrer">Slides</a> |
+	Cited by <a href='' id="title" target="_blank" rel="noopener noreferrer">0</a> <br>
+	
+	<a class="button-link" onclick="toggleDisplay('network-abstract')">
+		<span class="button"><i class="fas fa-list"></i> Abstract</span>
+	</a>
+	<a class="button-link" onclick="toggleDisplay('network-bibtex')">
+		<span class="button"><i class="fas fa-magnifying-glass"></i> Bibtex</span>
+	</a>
+	
+	<a class="button-link" href="{{ site.baseurl }}/assets/PDFs/Resilience_of_Linear_Networks__ArXiv_.pdf" target="_blank" rel="noopener noreferrer">
+		<span class="button"><i class="fas fa-file-pdf"></i> Pdf</span>
+	</a>
+
+	<a class="button-link" href="https://github.com/labicon/POLICEd-RL" target="_blank" rel="noopener noreferrer">
+		<span class="button"><i class="fab fa-github"></i> Code</span>
+	</a>
+
+	<a class="button-link" href="https://arxiv.org/abs/2306.16588" target="_blank" rel="noopener noreferrer">
+		<span class="button"><i class="ai ai-arxiv"></i> ArXiv</span>
+	</a>
+
+	<a class="button-link" href="https://jean-baptistebouvier.github.io/assets/blog_posts/policed_RL/" target="_blank" rel="noopener noreferrer">
+		<span class="button"><i class="fas fa-scroll"></i> Blog</span>
+	</a>
+	
+	<a class="button-link" href="https://jean-baptistebouvier.github.io/assets/blog_posts/policed_RL/" target="_blank" rel="noopener noreferrer">
+		<span class="button"><i class="fas fa-file-powerpoint"></i> Slides</span>
+	</a>
+	
+	<a class="button-link" href="https://jean-baptistebouvier.github.io/assets/blog_posts/policed_RL/" target="_blank" rel="noopener noreferrer">
+		<span class="button"><i class="fas fa-globe"></i> Website</span>
+	</a>
+  </div>
+</div>
+
+<div id="paper1-abstract" class="abstract">
+  abstract
+</div>
+<div id="paper1-bibtex" class="bibtex">
+<pre><code>
+@article{bouvier2023,
+  author = {},
+  title = {},
+  year = {2023}
+}
+</code></pre>
+</div>
+-->
+  
+ 
+ 
+<!-- Code to add the histogram of citations -->
+<script src="{{ site.baseurl }}/assets/js/chart.js"></script>
+
+<!-- Code to add a button return to top -->
+<button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
+<script src="{{ site.baseurl }}/assets/js/top_button.js" ></script>
+
+ 
+  
+</body>
