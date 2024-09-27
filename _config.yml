@@ -1,17 +1,17 @@
 # Built with Jekyll 3.6.0
 
 # Setup
-title:               Jean-Baptiste Bouvier
+title:               Taha Shafa
 #tagline:             Smart and Hardworking
-description:         Jean-Baptiste Bouvier's Personal Website
-url:                 'http://Jean-BaptisteBouvier.github.io'
+description:         Taha Shafa's Personal Website
+url:                 'https://github.com/TahaShafa/tahashafa.github.io'
 baseurl:             ''
 
 # About/contact
 author:
-  name:              Jean-Baptiste Bouvier
-  url:               http://Jean-BaptisteBouvier.github.io
-  email:             superjibs60@gmail.com
+  name:              Taha Shafa
+  url:               http://tahashafa.com
+  email:             taha.a.shafa@gmail.com
 
 # Color scheme. Options: red, orange, magenta, cyan, blue, brown
 color-scheme: blue
