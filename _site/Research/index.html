@@ -151,15 +151,15 @@
 <p>
 The overarching objective of my research is to establish provably safe performance capabilities for nonlinear systems under significant uncertainties. 
 My Ph.D. thesis mainly involves developing a novel control algorithm starting from its core mathematical underpinnings that is capable of navigating a nonlinear system to a provably
-reachable state within a guaranteed set amount of time without knowledge of the system dynamics. We aptly call said algorith Reachable Predictive Control (RPC). To demonstrate the 
+reachable state within a guaranteed set amount of time without knowledge of the system dynamics. We aptly call said algorithm Reachable Predictive Control (RPC). To demonstrate the 
 algorithm's efficacy, I am currently applying RPC onto an autonomous vehicle with the objective of successfully navigating around obstacles to reach some final state 
 within a theoretically guaranteed timeframe without the use of a dynamic model.
 </p>
 <p>
-In addition to the development and application of RPC, current research efforts involve the use of physics informed neural networks (PINNs) to model and control a two-segmented soft 
-robotic manipulator and the incorporation of multiple trajectories to perform system identification and control for unknown systems using the Koopman operator. Both efforts fall under
-the category of control under significant uncertainties due to the lack of reliable dynamic models for soft robots and the lack of dynamic model needed to control a nonlinear system 
-using Koopman operator learning methods.
+In addition to previous developments and the application of RPC, current research efforts involve: (1) the use of physics-informed neural networks (PINNs) to model and control a two-segmented soft 
+robotic manipulator and (2) the incorporation of observable trajectories to RPC for system identification and control using Koopman learning methods. Both efforts fall under
+the category of control under significant uncertainties. For (1): due to the lack of reliable dynamic models for soft robots, and for (2): the lack of dynamic model needed to control a nonlinear system 
+using Koopman learning methods.
 </p>
 
   <hr style="margin-top:1cm;">
@@ -234,9 +234,9 @@ using Koopman operator learning methods.
     We discuss in <a href="/assets/PDFs/Reachability_of_Nonlinear_Systems_with_Unknown_Dynamics.pdf" target="_blank" >this paper</a> how, in the case of nonlinear control-affine systems, this problem is mathematically equivalent to characterizing 
     a set contained in the interior of an interesection of infinitely many ellipses to ultimately calculate the GRS. The animation above shows the blue borders of infinitely many ellipses and black borders of finitely many ellipses and
     how the interior of their intersections are equivalent. In <a href="/assets/PDFs/Maximal_Ellipsoid_Method_for_Guaranteed_Reachability_of_Unknown_Fully_Actuated_Systems.pdf" target="_blank" >this paper</a>, we formally
-    prove this to be true and show how this implies that we can implement <a href="/assets/PDFs/bv_cvxbook.pdf" target="_blank" >optimization theory</a> to calculate a maximally inscribed ellipsoid (shown in red), 
+    prove this to be true and show how their equivalent interiors allow us to implement <a href="/assets/PDFs/bv_cvxbook.pdf" target="_blank" >optimization theory</a> to calculate a maximally inscribed ellipsoid (shown in red), 
     ultimately resulting in a maximal set of real-time reachable states. Results were also recently generalized to any system existing on complete <a href="/assets/PDFs/Guaranteed_Reachability_on_Riemannian_Manifolds_for_Unknown_Nonlinear_Systems_v1.pdf" target="_blank" >Riemannian manifolds</a> 
-    for increased generality of practical applications and improved capabilities.
+    for improved capabilities and a wider range of practical applications.  
   </p>
 
   <p>
