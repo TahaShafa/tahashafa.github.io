@@ -93,16 +93,16 @@ using Koopman operator learning methods.
 	Without the affine policy, TD3 requires several orders of magnitude more training episodes to learn a policy pointing away from the constraint line on its whole length.
 	For more details the POLICEd RL paper is accessible <a href="{{ site.baseurl }}/assets/PDFs/POLICEd_RL_ArXiv.pdf" target="_blank" rel="noopener noreferrer">here</a>.
   </p>
-	<img src="{{site.baseurl}}/assets/gifs/POLICEd_2D_gif.gif" alt="animated" class="center_img"/> 
+	<img src="{{site.baseurl}}/assets/gifs/MaximalEllipsoidalMethod.gif" alt="animated" class="center_img"/> 
 	<div class="caption">
-		Training of a policy to direct trajectories toward the target (cyan) whithout crossing the constraint line (red).<br>
-		The POLICEd policy is affine in the buffer region (green) and learns to push trajectories away from the constraint.
-		The black-box dynamics are 2D and continuous, the RL algorithm is TD3.<br>
+		We show that the interior of the intersection of infinitely many ellipsoids (blue border) is equivalent to the interior of the intersection of finitely
+    many ellipsoids (black border). By doing so, we can enscirbe an ellipsoid of maximal volume (red border) inside the interior of this intersection by solving an optimization
+    problem with finitely many constraints. The optimization problem was solved using MATLAB's <a href="https://www.mathworks.com/products/connections/product_detail/mosek.html" target="_blank" rel="noopener noreferrer">MOSEK</a><br> optimization toolbox.
 	</div>	
 
   
   
-  
+
   
   <hr style="margin-top:1cm;">
   <h2>Resilience of Autonomous Systems</h2>
