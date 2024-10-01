@@ -72,12 +72,6 @@
             
               
                 
-                  &nbsp; &nbsp; <a href="/Blog/">Blog</a>
-                
-              
-            
-              
-                
                   &nbsp; &nbsp; <a href="/Publications/">Publications</a>
                 
               
@@ -148,6 +142,8 @@
 	  display:inline-block;vertical-align:top;
 	}
   </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   
 </head>
 <body>
@@ -194,119 +190,64 @@ using Koopman operator learning methods.
 </body>
   <p>
     RPC works as follows: (1) <b>Resilience Verification:</b> determine if currrent robust and adaptive control methods would provide sufficient
-    autonmous capabilities to achieve the control objective; if not, (2) <b>Active Learning:</b> execute a learning cycle to learn the dynamicsT
+    autonmous capabilities to achieve the control objective; if not, (2) <b>Active Learning:</b> execute a learning cycle to learn the dynamics
     locally; (3) <b>Resilient Task Assignment:</b> determine a guaranteed set of reachable states without knowledge of the system dynamics; (4)
     <b>Controller Synthesis:</b> synthesize control action based on the limited knowledge from active learning and resilient task assignment; (5)
-    repeat steps (2)-(4) to iteratively navigate to a provably reachable location without knowledge of the true system dynamics.
+    repeat steps (2)-(4) to iteratively navigate to a provably reachable location without knowledge of the true system dynamics. Below is a list
+    of relevant publications for RPC.
   </p>
-  <p>
-    The main idea of our active learning method was first developed in the following <a href="/assets/PDFs/Myopic_Control_of_Systems_with_Unknown_Dynamics.pdf" target="_blank">myopic control</a> 
-    paper authored by my current advisor, <a href="https://mornik.web.illinois.edu" target="_blank" rel="noopener noreferrer">Prof. Melkior Ornik</a>, and then later built upon in our 
-    <a href="/assets/PDFs/Online_Learning_and_Control_Synthesis_for_Reachable_Paths_of_Unknown_Nonlinear_Systems_v1.pdf" target="_blank">recently submitted paper</a> currently under review 
-    for publication in IEEE Transactions on Automatic Control. These works explain how we may use m+1 actuator excitations learn the dynamics of an unknown system locally around some current initial state, where m is the number of 
-    actuators; each series of m+1 excitations is referred to as one learning cycle. We then use the local dynamics and some information on the maximal growth rate of these dynamics to determine a set of 
-    provably reachable states for our unknown system during resilient task assignment.  
-  </p>
+    <b>Active Learning:</b>
+  <ul>
+    <li>
+    <a href="/assets/PDFs/Online_Learning_and_Control_Synthesis_for_Reachable_Paths_of_Unknown_Nonlinear_Systems_v1.pdf" target="_blank">Online Learning and Control Synthesis for Reachable Paths of Unknown Nonlinear Systems</a><br>
+    </li>
+  </ul>
+    <b>Resilient Task Assignment:</b>
+  <ul>
+    <li><a href="/assets/PDFs/Reachability_of_Nonlinear_Systems_with_Unknown_Dynamics.pdf" target="_blank" >Reachability of Nonlinear Systems with Unknown Dynamics</a><br></li>
+    <li><a href="/assets/PDFs/Maximal_Ellipsoid_Method_for_Guaranteed_Reachability_of_Unknown_Fully_Actuated_Systems.pdf" target="_blank" >Maximal Ellipsoid Method for Guaranteed Reachability of Unknown Fully Actuated Systems</a><br></li>
+    <li><a href="/assets/PDFs/Guaranteed_Reachability_on_Riemannian_Manifolds_for_Unknown_Nonlinear_Systems_v1.pdf" target="_blank" >Guaranteed Reachability on Riemannian Manifolds for Unknown Nonlinear Systems</a><br></li>
+  </ul>
+    <b>Controller Synthesis:</b>
+  <ul>
+    <li><a href="/assets/PDFs/Identifying_Single_Input_Linear_System_Dynamics_from_Reachable_Sets.pdf" target="_blank" >Identifying Single Input Linear System Dynamics from Reachable Sets</a><br></li>
+    <li><a href="/assets/PDFs/Online_Learning_and_Control_Synthesis_for_Reachable_Paths_of_Unknown_Nonlinear_Systems_v1.pdf" target="_blank">Online Learning and Control Synthesis for Reachable Paths of Unknown Nonlinear Systems</a><br></li>
+  </ul>
 
   <p>
-    During resilient task assignment, we find an underapproximation of the true reachable set of our unknown system using (i) local dynamics from active learning, and (ii) the growth rate on the bounds of those dynamics 
-    gathered from known physical laws. We refer to this set of reachable states as the <a href="/assets/PDFs/Reachability_of_Nonlinear_Systems_with_Unknown_Dynamics.pdf" target="_blank"><i>Guaranteed Reachable Set (GRS)</i></a>  
-    which intuitively represents a set of states that are <i>provably</i> reachable within an explicit amout of time under extremely limited information. 
-    We then optimize results <a href="/assets/PDFs/Maximal_Ellipsoid_Method_for_Guaranteed_Reachability_of_Unknown_Fully_Actuated_Systems.pdf" target="_blank">here</a> to maximize the GRS, thereby increasing
-    the information we can obtain regarding which states are provably reachable without knowledge of the system dynamics. 
+    We consider nonlinear control-affine systems of the form $$\dot{x} = f(x) + G(x)u,\quad x(0) = x_0$$ where $u\in\mathbb{B}^m(0;1)$ and $f, G$ are unknown and represent the drift and the control input vector field respectively.
+    When implementing RPC, the system initially undergoes a <a href="/assets/PDFs/Online_Learning_and_Control_Synthesis_for_Reachable_Paths_of_Unknown_Nonlinear_Systems_v1.pdf" target="_blank">learning cycle</a>
+    where m+1 excitations to its actuators provide the local dynamics around $x = x_0$. The system performs <a href="/assets/PDFs/Reachability_of_Nonlinear_Systems_with_Unknown_Dynamics.pdf" target="_blank" >resilient task assignment</a>, 
+    where it will autonomously calculate a guaranteed underapproximation of the true reachable set of our unknown system using (i) local dynamics from active learning, and (ii) the growth rate on the bounds of those dynamics
+    gathered from known physical laws -- the following <a href="/assets/PDFs/On_the_Minimax_Reachability_of_Traget_Sets_and_Target_Tubes.pdf" target="_blank">reference</a> is provided for additional background 
+    on reachability analysis. We refer to this underapproximated set as the <i>Guaranteed Reachable Set (GRS)</i>, which naturally translates to a set of states we can provably reach within a given timeframe without knowledge of     
+    system dynamics. We provide an illustration of resilient task assignment below.
   </p>
 
-  <p>
-	We illustrate POLICEd RL below on a simple 2D system and show that safety is guaranteed at the end of training.
-	Without the affine policy, TD3 requires several orders of magnitude more training episodes to learn a policy pointing away from the constraint line on its whole length.
-	For more details the POLICEd RL paper is accessible <a href="/assets/PDFs/POLICEd_RL_ArXiv.pdf" target="_blank" rel="noopener noreferrer">here</a>.
-  </p>
 	<img src="/assets/gifs/MaximalEllipsoidalMethod.gif" alt="animated" class="center_img"/> 
 	<div class="caption">
-		We show that the interior of the intersection of infinitely many ellipsoids (blue border) is equivalent to the interior of the intersection of finitely
-    many ellipsoids (black border). By doing so, we can enscirbe an ellipsoid of maximal volume (red border) inside the interior of this intersection by solving an optimization
-    problem with finitely many constraints. The optimization problem was solved using MATLAB's <a href="https://www.mathworks.com/products/connections/product_detail/mosek.html" target="_blank" rel="noopener noreferrer">MOSEK</a><br> optimization toolbox.
-	</div>	
+		Resilient Task Assignment<br>
+    The optimization was performed using MATLAB's <a href="https://www.mathworks.com/products/connections/product_detail/mosek.html" target="_blank" rel="noopener noreferrer">MOSEK</a> optimization toolbox.
+  </div>	
 
-  
-  
-
-  
-  <hr style="margin-top:1cm;">
-  <h2>Resilience of Autonomous Systems</h2>
-  
   <p>
-	After docking to the International Space Station (ISS), the Nauka module suffered a software error causing its thrusters to misfire.
-	In turn, these uncontrolled thrusters rotated the whole space station by 540° before being counteracted by other thrusters of the ISS.
-	Motivated by such a scenario, my PhD thesis investigated the guaranteed resilience of autonomous systems to a similar class of malfunctions called partial loss of control authority over actuators.
-	These malfunctions are characterized by actuators producing uncontrolled and undesirable outputs instead of following the controller’s commands.
-	A loss of control authority can be caused, for instance, by a software bug as in the ISS example or by an adversarial takeover of some actuators of the system.
-  </p>
-  <p>  
-	In this setting, I investigated the malfunctioning system's remaining capabilities to complete its mission in terms of resilient reachability and resilient trajectory tracking.
-	I quantified the resilience of linear systems by comparing the reachability performance of the nominal dynamics with that of the worst-case malfunctioning dynamics.
-	The resilience of driftless systems is quantified by the Maximax Minimax Quotient Theorem whose geometrical proof is illustrated on the video below.
-  </p>	
-	 
-   <div class="videowrapper">
-     <iframe src="https://www.youtube.com/embed/rjKzHyDJX40">
-     </iframe>
-   </div>
-	
-  <p>	
-	I extended my resilience investigation to systems further inflicted with actuation delays preventing an immediate cancellation of the undesirable outputs.
-	I illustrated my theory on a wide range of applications including an octocopter, a fighter jet model, and an orbital inspection mission illustrated by the following video.
+    We discuss in <a href="/assets/PDFs/Reachability_of_Nonlinear_Systems_with_Unknown_Dynamics.pdf" target="_blank" >this paper</a> how, in the case of nonlinear control-affine systems, this problem is mathematically equivalent to characterizing 
+    a set contained in the interior of an interesection of infinitely many ellipses to ultimately calculate the GRS. The animation above shows the blue borders of infinitely many ellipses and black borders of finitely many ellipses and
+    how the interior of their intersections are equivalent. In <a href="/assets/PDFs/Maximal_Ellipsoid_Method_for_Guaranteed_Reachability_of_Unknown_Fully_Actuated_Systems.pdf" target="_blank" >this paper</a>, we formally
+    prove this to be true and show how this implies that we can implement <a href="/assets/PDFs/bv_cvxbook.pdf" target="_blank" >optimization theory</a> to calculate a maximally inscribed ellipsoid (shown in red), 
+    ultimately resulting in a maximal set of real-time reachable states. Results were also recently generalized to any system existing on complete <a href="/assets/PDFs/Guaranteed_Reachability_on_Riemannian_Manifolds_for_Unknown_Nonlinear_Systems_v1.pdf" target="_blank" >Riemannian manifolds</a> 
+    for increased generality of practical applications and improved capabilities.
   </p>
 
-  <div class="videowrapper">
-    <iframe src="https://www.youtube.com/embed/DQy8iNHyt7M">
-	</iframe>
-  </div>
-  
   <p>
-	For more details on resilience theory see <a href="/assets/blog_posts/resilience">this blog post</a>.
+    Existing publications pertaining to controller synthesis detail how we can: (1)
+<a href="/assets/PDFs/Identifying_Single_Input_Linear_System_Dynamics_from_Reachable_Sets.pdf" target="_blank" >use reachable sets to uniquely determine the system dynamics of an unknown system</a>
+    and (2) <a href="/assets/PDFs/Online_Learning_and_Control_Synthesis_for_Reachable_Paths_of_Unknown_Nonlinear_Systems_v1.pdf" target="_blank">synthesize control action using theoretical guarantees from resilient task assignment</a>.
+    Current efforts build on (2), where we use the set of reachable states from resilient task assignment to synthesize control action. 
+    Specifically, efforts focus on implementing Reachable Predictive Control to navigate an autonomous vehicle around obstacles to a desired target state within a theoretically
+    guaranteed amount of time without the use of the vehicle's dynamics model.
   </p>
 
-
-
-
-  <hr style="margin-top:1cm;">
-  <h2>Astrodynamics work</h2>
-  
-  
-
-
-
-  
-  <hr style="margin-top:1cm;">
-  <h2>Other Research Work</h2>
-  
-  
-  <details>
-    <summary>
-      <div class="project-title">Transient Safety of Microgrids</div>
-	  <div class="github-link">
-        <a href="https://github.com/Jean-BaptisteBouvier/Microgrid-transient-safety" target="_blank" rel="noopener noreferrer"><img src="/assets/logos/GitHub_logo.png" width="25"></a>
-      </div>
-	</summary>
-    <ul>
-      <li>To ensure transient safety in inverter-based microgrids, we develop a set invariance-based distributed safety verification algorithm for each inverter module.
-	  Applying Nagumo’s invariance condition, we construct a robust polynomial optimization problem to jointly search for safety-admissible set of control set-points and design parameters,
-	  under allowable disturbances from neighbors.
-	  We use sum-of-squares (SOS) programming to solve the verification problem and we perform numerical simulations using grid-forming inverters to illustrate the algorithm.</li>
-      <li>This work has first been presented at the <a href="https://ieeexplore.ieee.org/document/9867323" target="_blank" rel="noopener noreferrer">2022 American Control Conference</a>.</li>
-    </ul>
-
-  </details>
-  
-  
-  
-  
-  
-  
-<!-- Code to add a button return to top -->
-<button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
-<script src="/assets/js/top_button.js" ></script>
 
   
 </body>  
