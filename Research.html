@@ -39,23 +39,55 @@ using Koopman operator learning methods.
 </p>
 
   <hr style="margin-top:1cm;">
-  <h2>Guaranteeing Safety in Reinforcement Learning</h2>
+  <h2>Reachable Predictive Control: A Novel Algorithm for the Control of Unknown Nonlinear Systems without a Dynamics Model</h2>
   
   <p>
-    My most recent research topic is to develop provable safety guarantees in Reinforcement Learning (RL).
-	More specifically, I have been looking at enforcing hard constraints with a learned policy in closed-loop with a black-box environment.
-	In <a href="{{ site.baseurl }}/assets/blog_posts/safe_RL" target="_blank" rel="noopener noreferrer">this blog post</a> I discuss how most of the safe RL literature <em>cannot guarantee such constraint respect</em>.
-	Based on this observation, I devised <strong>POLICEd RL</strong> to solve this issue.
+   The RPC control algorithm pipeline is presented below: 
+  </p>
+
+<head>
+  <style>
+    figure {
+      text-align: center;
+      margin: 20px auto;
+    }
+
+    figcaption {
+      font-style: italic;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <figure>
+    <img src="/assets/pictures/FlowChart.png" alt="A description of the image" class="center_img" width="525" height="450">
+    <figcaption>Flow Chart of Reachable Predictive Control (RPC).</figcaption>
+  </figure>
+</body>
+  <p>
+    RPC works as follows: (1) <b>Resilience Verification:</b> determine if currrent robust and adaptive control methods would provide sufficient
+    autonmous capabilities to achieve the control objective; if not, (2) <b>Active Learning:</b> execute a learning cycle to learn the dynamicsT
+    locally; (3) <b>Resilient Task Assignment:</b> determine a guaranteed set of reachable states without knowledge of the system dynamics; (4)
+    <b>Controller Synthesis:</b> synthesize control action based on the limited knowledge from active learning and resilient task assignment; (5)
+    repeat steps (2)-(4) to iteratively navigate to a provably reachable location without knowledge of the true system dynamics.
   </p>
   <p>
-	The main idea for POLICEd RL is to make the policy repulsive in the state-space region surrounding the constraint.
-	This repulsive buffer will then push trajectories away from the constraint and guarantee its satisfaction.
-	The policy learns to be repulsive as it receives penalties for each constraint violation during training.
-	My key insight is to use the <a href="https://ieeexplore.ieee.org/document/10096520" target="_blank" rel="noopener noreferrer">POLICE algorithm</a>
-	to make the policy affine in this buffer, which then allows to verify its repulsive character by only evaluating the policy at the vertices of the buffer.
-	This discrete and small number of evaluations to <em>guarantee safety</em> contrasts with the typical approach of learning a safety certificate that needs to be
-	evaluated <em>everywhere on the state space</em> to check if this learned certificate verifies the analytical safety conditions.
+    The main idea of our active learning method was first developed in the following <a href="{{ site.baseurl }}/assets/PDFs/Myopic_Control_of_Systems_with_Unknown_Dynamics.pdf" target="_blank">myopic control</a> 
+    paper authored by my current advisor, <a href="https://mornik.web.illinois.edu" target="_blank" rel="noopener noreferrer">Prof. Melkior Ornik</a>, and then later built upon in our 
+    <a href="{{ site.baseurl }}/assets/PDFs/Online_Learning_and_Control_Synthesis_for_Reachable_Paths_of_Unknown_Nonlinear_Systems_v1.pdf" target="_blank">recently submitted paper</a> currently under review 
+    for publication in IEEE Transactions on Automatic Control. These works explain how we may use m+1 actuator excitations learn the dynamics of an unknown system locally around some current initial state, where m is the number of 
+    actuators; each series of m+1 excitations is referred to as one learning cycle. We then use the local dynamics and some information on the maximal growth rate of these dynamics to determine a set of 
+    provably reachable states for our unknown system during resilient task assignment.  
   </p>
+
+  <p>
+    During resilient task assignment, we find an underapproximation of the true reachable set of our unknown system using (i) local dynamics from active learning, and (ii) the growth rate on the bounds of those dynamics 
+    gathered from known physical laws. We refer to this set of reachable states as the <a href="{{ site.baseurl }}/assets/PDFs/Reachability_of_Nonlinear_Systems_with_Unknown_Dynamics.pdf" target="_blank"><i>Guaranteed Reachable Set (GRS)</i></a>  
+    which intuitively represents a set of states that are <i>provably</i> reachable within an explicit amout of time under extremely limited information. 
+    We then optimize results <a href="{{ site.baseurl }}/assets/PDFs/Maximal_Ellipsoid_Method_for_Guaranteed_Reachability_of_Unknown_Fully_Actuated_Systems.pdf" target="_blank">here</a> to maximize the GRS, thereby increasing
+    the information we can obtain regarding which states are provably reachable without knowledge of the system dynamics. 
+  </p>
+
   <p>
 	We illustrate POLICEd RL below on a simple 2D system and show that safety is guaranteed at the end of training.
 	Without the affine policy, TD3 requires several orders of magnitude more training episodes to learn a policy pointing away from the constraint line on its whole length.
