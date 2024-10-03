@@ -1,0 +1,26 @@
+[1mdiff --git a/_site/assets/css/style.css b/_site/assets/css/style.css[m
+[1mindex ea17ad4..0958dc4 100644[m
+[1m--- a/_site/assets/css/style.css[m
+[1m+++ b/_site/assets/css/style.css[m
+[36m@@ -227,7 +227,7 @@[m [mtbody tr:nth-child(odd) th {[m
+   color: #505050;[m
+   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;[m
+   font-size: 1rem;[m
+[31m-  line-height: 0.777em;[m
+[32m+[m[32m  line-height: 1rem;[m
+   margin-top: 2em;[m
+   margin-bottom: 0;[m
+   margin-right: 0;[m
+[36m@@ -235,6 +235,12 @@[m [mtbody tr:nth-child(odd) th {[m
+   text-align: center;[m
+ }[m
+ [m
+[32m+[m[32m@media (max-width: 800px) {[m
+[32m+[m[32m  .masthead-title {[m
+[32m+[m[32m    line-height: 2rem;[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[32m+[m
+ .masthead-title small {[m
+   color: #454545;[m
+   display: none; /* This is an accessibility no-no */[m
