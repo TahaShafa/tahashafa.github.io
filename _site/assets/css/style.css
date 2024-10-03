@@ -227,29 +227,12 @@ tbody tr:nth-child(odd) th {
   color: #505050;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-size: 1rem;
-  line-height: 1rem;
+  line-height: 0.777em;
   margin-top: 2em;
   margin-bottom: 0;
   margin-right: 0;
   margin-left: 0;
   text-align: center;
-}
-
-@media (max-width: 800px) {
-
-  .masthead {
-    /*
-      On mobile, reduce top padding to make it more visually balanced and not take up vertical space unnecessarily.
-    */
-    padding-top: 1rem;
-  }
-  
-  .masthead-title {
-    /*
-      Give more space between links when they wrap on mobile, due to touchscreen
-    */
-    line-height: 2rem;
-  }
 }
 
 .masthead-title small {
