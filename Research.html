@@ -67,8 +67,8 @@ using Koopman learning methods.
   </figure>
 </body>
   <p>
-    RPC works as follows: (1) <b>Resilience Verification:</b> determine if currrent robust and adaptive control methods would provide sufficient
-    autonmous capabilities to achieve the control objective; if not, (2) <b>Active Learning:</b> execute a learning cycle to learn the dynamics
+    RPC works as follows: (1) <b>Resilience Verification:</b> determine if current robust and adaptive control methods would provide sufficient
+    autonomous capabilities to achieve the control objective; if not, (2) <b>Active Learning:</b> execute a learning cycle to learn the dynamics
     locally; (3) <b>Resilient Task Assignment:</b> determine a guaranteed set of reachable states without knowledge of the system dynamics; (4)
     <b>Controller Synthesis:</b> synthesize control action based on the limited knowledge from active learning and resilient task assignment; (5)
     repeat steps (2)-(4) to iteratively navigate to a provably reachable location without knowledge of the true system dynamics. Below is a list
@@ -97,7 +97,7 @@ using Koopman learning methods.
     When implementing RPC, the system initially undergoes a <a href="{{ site.baseurl }}/assets/PDFs/Online_Learning_and_Control_Synthesis_for_Reachable_Paths_of_Unknown_Nonlinear_Systems_v1.pdf" target="_blank">learning cycle</a>
     where m+1 excitations to its actuators provide the local dynamics around $x = x_0$. The system performs <a href="{{ site.baseurl }}/assets/PDFs/Reachability_of_Nonlinear_Systems_with_Unknown_Dynamics.pdf" target="_blank" >resilient task assignment</a>, 
     where it will autonomously calculate a guaranteed underapproximation of the true reachable set of our unknown system using (i) local dynamics from active learning, and (ii) the growth rate on the bounds of those dynamics
-    gathered from known physical laws -- the following <a href="{{ site.baseurl }}/assets/PDFs/On_the_Minimax_Reachability_of_Traget_Sets_and_Target_Tubes.pdf" target="_blank">reference</a> is provided for additional background 
+    gathered from known physical laws -- the following <a href="{{ site.baseurl }}/assets/PDFs/On_the_Minimax_Reachability_of_Target_Sets_and_Target_Tubes.pdf" target="_blank">reference</a> is provided for additional background 
     on reachability analysis. We refer to this underapproximated set as the <i>Guaranteed Reachable Set (GRS)</i>, which naturally translates to a set of states we can provably reach within a given timeframe without knowledge of     
     system dynamics. We provide an illustration of resilient task assignment below.
   </p>
@@ -110,7 +110,7 @@ using Koopman learning methods.
 
   <p>
     We discuss in <a href="{{ site.baseurl }}/assets/PDFs/Reachability_of_Nonlinear_Systems_with_Unknown_Dynamics.pdf" target="_blank" >this paper</a> how, in the case of nonlinear control-affine systems, this problem is mathematically equivalent to characterizing 
-    a set contained in the interior of an interesection of infinitely many ellipses to ultimately calculate the GRS. The animation above shows the blue borders of infinitely many ellipses and black borders of finitely many ellipses and
+    a set contained in the interior of an intersection of infinitely many ellipses to ultimately calculate the GRS. The animation above shows the blue borders of infinitely many ellipses and black borders of finitely many ellipses and
     how the interior of their intersections are equivalent. In <a href="{{ site.baseurl }}/assets/PDFs/Maximal_Ellipsoid_Method_for_Guaranteed_Reachability_of_Unknown_Fully_Actuated_Systems.pdf" target="_blank" >this paper</a>, we formally
     prove this to be true and show how their equivalent interiors allow us to implement <a href="{{ site.baseurl }}/assets/PDFs/bv_cvxbook.pdf" target="_blank" >optimization theory</a> to calculate a maximally inscribed ellipsoid (shown in red), 
     ultimately resulting in a maximal set of real-time reachable states. Results were also recently generalized to any system existing on complete <a href="{{ site.baseurl }}/assets/PDFs/Guaranteed_Reachability_on_Riemannian_Manifolds_for_Unknown_Nonlinear_Systems_v1.pdf" target="_blank" >Riemannian manifolds</a> 
