@@ -27,11 +27,10 @@ title: Research
 <body>
 
 <p>
-The overarching objective of my research is to establish provably safe performance capabilities for nonlinear systems under significant uncertainties. 
-My Ph.D. thesis mainly involves developing a novel control algorithm starting from its core mathematical underpinnings that is capable of navigating a nonlinear system to a provably
-reachable state within a guaranteed set amount of time without knowledge of the system dynamics. We aptly call said algorithm Reachable Predictive Control (RPC). To demonstrate the 
-algorithm's efficacy, I am currently applying RPC onto an autonomous vehicle with the objective of successfully navigating around obstacles to reach some final state 
-within a theoretically guaranteed timeframe without the use of a dynamic model.
+  The overarching objective of my research is to establish provably safe performance capabilities for nonlinear systems under significant uncertainties. My Ph.D. thesis mainly involves developing a novel control algorithm called Reachable Predictive Control (RPC) that is capable of navigating to a provably reachable state within a guaranteed set amount of time without knowledge of the system dynamics. The novelty of this method is the lack of information needed to implement it. That is, RPC can effectively follow piecewise linear trajectories in real time without relying on a dynamics model or prior data for offline system identification. In contrast, control methods require a physics-based model for implementation and provide sluggish performance once uncertainty passes a threshold; neural networks require training data to train a model offline and cannot be implemented onboard without prior relevant data. 
+</p>
+<p>
+  Ideal applications include the autonomous control of air and space systems under abrupt changes in their dynamics due to adverse events, as well as the control of chaotic systems, such as soft robots, where existing models are notoriously inadequate for achieving high-performance autonomy. To demonstrate the  algorithm's efficacy, I am currently applying RPC onto an autonomous vehicle with the objective of successfully navigating around obstacles to reach some final state within a theoretically guaranteed time frame without the use of a dynamics model.
 </p>
 <!--p>
 In addition to previous developments and the application of RPC, current research efforts involve: (1) the use of physics-informed neural networks (PINNs) to model and control a two-segmented soft 
