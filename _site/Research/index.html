@@ -272,7 +272,7 @@ using Koopman learning methods.
   <p>
   Notice in the figures above that since the red and black sets are contained it the GVS, their corresponding paths are contained in the unknown nonlinear system's true reachable set. We emphasize that without knowledge of the unknown nonlinear system dynamics, the true reachable set is impossible to calculate in general cases, and thus we aim to underapproximate it to isolate a set of reachable paths.
     </p>
-    <p>Intuitively, the larger the set contained within the underapproximation of the GVS, the larger the set of states we can provably reach, and thus the more paths we can navigate to. This motivates us to try and maximize the volume of the set contained within the GVS. We discuss in <a href="/assets/PDFs/Reachability_of_Nonlinear_Systems_with_Unknown_Dynamics.pdf" target="_blank" >this paper</a> how, in the case of nonlinear control-affine systems, this problem is mathematically equivalent to characterizing a set contained in the interior of an intersection of infinitely many ellipses. In <a href="/assets/PDFs/Maximal_Ellipsoid_Method_for_Guaranteed_Reachability_of_Unknown_Fully_Actuated_Systems.pdf" target="_blank" >this paper</a>, we formally prove a way to find a maximally inscribed ellipsoid contained in the intersection of infinitely many ellipsoid, thus resulting in an optimal underapproximation. 
+    <p>Intuitively, the larger the set contained within the underapproximation of the GVS, the larger the set of states we can provably reach, and thus the more paths we can navigate to. This motivates us to try and maximize the volume of the set contained within the GVS. We discuss in <a href="/assets/PDFs/Reachability_of_Nonlinear_Systems_with_Unknown_Dynamics.pdf" target="_blank" >this paper</a> how, in the case of nonlinear control-affine systems, this problem is mathematically equivalent to characterizing a set contained in the interior of an intersection of infinitely many ellipses and we formally prove a way to find a maximally inscribed ellipsoid contained in the intersection of infinitely many ellipsoid, thus resulting in an optimal underapproximation. 
 </p>
 
 <div class="gif-container">
@@ -306,8 +306,6 @@ using Koopman learning methods.
     Specifically, efforts focus on implementing Reachable Predictive Control to navigate an autonomous vehicle around obstacles to a desired target state within a theoretically
     guaranteed amount of time without the use of the vehicle's dynamics model.
   </p>
-
-	
 
 <img src="/assets/gifs/controller_synthesis_with_grs.gif" alt="animated" class="center_img" style="width: 600px; height: 450px;" />
 
