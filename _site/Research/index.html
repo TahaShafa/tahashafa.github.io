@@ -137,13 +137,42 @@
 	}
   </style>
 
+  <style>
+
+    .gif-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px; /* Space between GIFs */
+    }
+
+    .gif-item {
+      display: flex;
+      flex-direction: column; /* Stack the GIF and caption vertically */
+      align-items: center; /* Center-align both the GIF and caption */
+      text-align: center; /* Center the text */
+      width: 420px; /* Fixed container width */
+      height: auto; /* Allow height to adjust to content */
+      background-color: white; /* Optional: set a background color */
+      padding: 10px; /* Optional: add padding for spacing */
+      box-sizing: border-box; /* Include padding in width calculation */
+    }
+
+    .center_img {
+      max-width: 100%;
+      max-height: auto;
+      width: auto; /* Maintain aspect ratio */
+      height: auto; /* Maintain aspect ratio */
+    }
+
+  </style>
+
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   
 </head>
 <body>
 
 <p>
-  The overarching objective of my research is to establish provably safe performance capabilities for nonlinear systems under significant uncertainties. My Ph.D. thesis mainly involves developing a novel control algorithm called Reachable Predictive Control (RPC) that is capable of navigating to a provably reachable state within a guaranteed set amount of time without knowledge of the system dynamics. The novelty of this method is the lack of information needed to implement it. That is, RPC can effectively follow piecewise linear trajectories in real time without relying on a dynamics model or prior data for offline system identification. In contrast, control methods require a physics-based model for implementation and provide sluggish performance once uncertainty passes a threshold; neural networks require training data to train a model offline and cannot be implemented onboard without prior relevant data. 
+  The overarching objective of my research is to establish provably safe performance capabilities for nonlinear systems under significant uncertainties. My Ph.D. thesis mainly involves developing a novel control algorithm called Reachable Predictive Control (RPC) that is capable of navigating to a provably reachable state while avoiding unsafe regions without knowledge of the system dynamics. The novelty of this method is the lack of information needed to implement it. That is, RPC can effectively follow piecewise linear trajectories in real time without relying on a dynamics model or prior data for offline system identification. In contrast, control methods require a physics-based model for implementation and provide sluggish performance once uncertainty passes a threshold; neural networks require training data to train a model offline and cannot be implemented onboard without prior relevant data. 
 </p>
 <p>
   Ideal applications include the autonomous control of air and space systems under abrupt changes in their dynamics due to adverse events, as well as the control of chaotic systems, such as soft robots, where existing models are notoriously inadequate for achieving high-performance autonomy. To demonstrate the  algorithm's efficacy, I am currently applying RPC onto an autonomous vehicle with the objective of successfully navigating around obstacles to reach some final state within a theoretically guaranteed time frame without the use of a dynamics model.
@@ -158,6 +187,9 @@ using Koopman learning methods.
   <hr style="margin-top:1cm;">
   <h2>Reachable Predictive Control: A Novel Algorithm for the Control of Unknown Nonlinear Systems without a Dynamics Model</h2>
   
+  <p>
+  <!--p>It should first be mentioned that control theory and AI are wildly useful. On a high level, control theory provides robust, safe automation capabilities and guarantees while AI and learning methods focus on more complex performance. However, while both are heavily used in cutting-edge research to handle system uncertainty, both methods come equipped with their own challenges. In the realm of control theory, robust control performance can be too conservative while adaptive control can generate failed control policies under significant uncertainties. On the other hand, neural networks classically lack formal guarantees and often require offline training to implement data-driven methods. In contrast, reachable predictive control can operate without knowledge of the system dynamics, including any nominal models. Additionally, the algorithm can follow piecewise linear trajectories in real time without the need of a priori data. This is because in RPC, we transform unknown, complicated systems into known, simple systems and work with these simple, underapproximated proxy systems.
+  </p-->
   <p>
    The RPC control algorithm pipeline is presented below: 
   </p>
@@ -177,7 +209,7 @@ using Koopman learning methods.
 </head>
 <body>
   <figure>
-    <img src="/assets/pictures/FlowChart.png" alt="A description of the image" class="center_img" width="525" height="450">
+    <img src="/assets/pictures/FlowChart.png" alt="A description of the image" class="center_img" style="width: 600px; height: 550px;">
     <figcaption>Flow Chart of Reachable Predictive Control (RPC).</figcaption>
   </figure>
 </body>
@@ -210,42 +242,104 @@ using Koopman learning methods.
   <p>
     We consider nonlinear control-affine systems of the form $$\dot{x} = f(x) + G(x)u,\quad x(0) = x_0$$ where $u\in\mathbb{B}^m(0;1)$ and $f, G$ are unknown and represent the drift and the control input vector field respectively.
     When implementing RPC, the system initially undergoes a <a href="/assets/PDFs/Online_Learning_and_Control_Synthesis_for_Reachable_Paths_of_Unknown_Nonlinear_Systems_v1.pdf" target="_blank">learning cycle</a>
-    where m+1 excitations to its actuators provide the local dynamics around $x = x_0$. The system performs <a href="/assets/PDFs/Reachability_of_Nonlinear_Systems_with_Unknown_Dynamics.pdf" target="_blank" >resilient task assignment</a>, 
-    where it will autonomously calculate a guaranteed underapproximation of the true reachable set of our unknown system using (i) local dynamics from active learning, and (ii) the growth rate on the bounds of those dynamics
+    where m+1 excitations to its actuators provide the local dynamics around $x = x_0$. That is, the system can determine $f(x_0)$ and $G(x_0)$, however $f(x)$ and $G(x)$ for $x \neq x_0$ still remain unknown. Then, the system performs <a href="/assets/PDFs/Reachability_of_Nonlinear_Systems_with_Unknown_Dynamics.pdf" target="_blank" >resilient task assignment</a>, 
+    where it will autonomously determine a set of states that are reachable for all systems which satisfy (i) the local dynamics from active learning, and (ii) the growth rate on the bounds of those dynamics
     gathered from known physical laws -- the following <a href="/assets/PDFs/On_the_Minimax_Reachability_of_Target_Sets_and_Target_Tubes.pdf" target="_blank">reference</a> is provided for additional background 
-    on reachability analysis. We refer to this underapproximated set as the <i>Guaranteed Reachable Set (GRS)</i>, which naturally translates to a set of states we can provably reach within a given timeframe without knowledge of     
-    system dynamics. We provide an illustration of resilient task assignment below.
+    on reachability analysis. We refer to this underapproximated set as the <i>Guaranteed Reachable Set (GRS)</i>, which naturally translates to a set of states we can provably reach within a given timeframe without knowledge of the system dynamics.
   </p>
 
-	<img src="/assets/gifs/OptimalEllipsoidalUnderapproximation.gif" alt="animated" class="center_img"/> 
-	<div class="caption">
-		Resilient Task Assignment<br>
-    The optimization was performed using MATLAB's <a href="https://www.mathworks.com/products/connections/product_detail/mosek.html" target="_blank" rel="noopener noreferrer">MOSEK</a> optimization toolbox.
-  </div>	
+<p>
+  If we are given a set of states to reach over a period of time, we can use this information to form reachable paths to follow. We thus aim to characterize the GRS to determine reachable paths for autonomous navigation. A path is tightly connected to the notion of velocities. That is, a path can be thought of as a set of velocities at each point on the path, so intuitively, we start by finding an underapproximation of the set of all attainable velocities, then use that information to form the GRS. We provide an illustration of resilient task assignment below.
+</p>
+
+<div class="gif-container">
+  <div class="gif-item">
+    <img src="/assets/gifs/Ball_Convex_Underapproximations_GVS.gif" alt="animated" class="center_img" />
+    <div class="caption">
+      Guaranteed Velocity Set (GVS)<br>
+      The set of velocities attainable by all $f,G$ consistent with our assumptions is in the interior of the blue region. The red and black sets are underapproximations contained in this interior for all time.    
+      </div>
+  </div>
+  <div class="gif-item">
+    <img src="/assets/gifs/Reachable_Set_Euclidean_Example.gif" alt="another animated" class="center_img" />
+    <div class="caption">
+      Guaranteed Reachable Set (GRS)<br>
+      The set of guaranteed reachable states corresponding to the set of attainable velocities in the GVS. The red and black sets in the GVS correspond to the red and black sets which form the union of all paths that can be followed from $x_0$.    
+      </div>
+  </div>
+</div>
 
   <p>
-    We discuss in <a href="/assets/PDFs/Reachability_of_Nonlinear_Systems_with_Unknown_Dynamics.pdf" target="_blank" >this paper</a> how, in the case of nonlinear control-affine systems, this problem is mathematically equivalent to characterizing 
-    a set contained in the interior of an intersection of infinitely many ellipses to ultimately calculate the GRS. The animation above shows the blue borders of infinitely many ellipses and black borders of finitely many ellipses and
-    how the interior of their intersections are equivalent. In <a href="/assets/PDFs/Maximal_Ellipsoid_Method_for_Guaranteed_Reachability_of_Unknown_Fully_Actuated_Systems.pdf" target="_blank" >this paper</a>, we formally
-    prove this to be true and show how their equivalent interiors allow us to implement <a href="/assets/PDFs/bv_cvxbook.pdf" target="_blank" >optimization theory</a> to calculate a maximally inscribed ellipsoid (shown in red), 
-    ultimately resulting in a maximal set of real-time reachable states. Results were also recently generalized to any system existing on complete <a href="/assets/PDFs/Guaranteed_Reachability_on_Riemannian_Manifolds_for_Unknown_Nonlinear_Systems_v1.pdf" target="_blank" >Riemannian manifolds</a> 
+  Notice in the figures above that since the red and black sets are contained it the GVS, their corresponding paths are contained in the unknown nonlinear system's true reachable set. We emphasize that without knowledge of the unknown nonlinear system dynamics, the true reachable set is impossible to calculate in general cases, and thus we aim to underapproximate it to isolate a set of reachable paths.
+    </p>
+    <p>Intuitively, the larger the set contained within the underapproximation of the GVS, the larger the set of states we can provably reach, and thus the more paths we can navigate to. This motivates us to try and maximize the volume of the set contained within the GVS. We discuss in <a href="/assets/PDFs/Reachability_of_Nonlinear_Systems_with_Unknown_Dynamics.pdf" target="_blank" >this paper</a> how, in the case of nonlinear control-affine systems, this problem is mathematically equivalent to characterizing a set contained in the interior of an intersection of infinitely many ellipses. In <a href="/assets/PDFs/Maximal_Ellipsoid_Method_for_Guaranteed_Reachability_of_Unknown_Fully_Actuated_Systems.pdf" target="_blank" >this paper</a>, we formally prove a way to find a maximally inscribed ellipsoid contained in the intersection of infinitely many ellipsoid, thus resulting in an optimal underapproximation. 
+</p>
+
+<div class="gif-container">
+  <div class="gif-item">
+    <img src="/assets/gifs/Optimal_Underapproximation_GVS.gif" alt="animated" class="center_img" />
+    <div class="caption">
+      Optimal Ellipsoidal Underapproximation for the GVS<br>
+      An optimal underapproximation of the GVS as time increases. The optimization was performed using MATLAB's <a href="https://www.mathworks.com/products/connections/product_detail/mosek.html" target="_blank" rel="noopener noreferrer">MOSEK</a> optimization toolbox.    
+      </div>
+  </div>
+  <div class="gif-item">
+    <img src="/assets/gifs/OptimalEllipsoidalUnderapproximation.gif" alt="another animated" class="center_img" />
+    <div class="caption">
+      Critical Ellipses used to Calculate the Optimal Underapproximation<br>
+      The set of critical ellipses used at a single time instance to underaproximate the GVS and the corresponding optimal set.
+      </div>
+  </div>
+</div>
+
+
+<p>
+    It is generally impossible to solve an optimization problem with infinitely many constraints. As a result, <a href="/assets/PDFs/Reachability_of_Nonlinear_Systems_with_Unknown_Dynamics.pdf" target="_blank" >this paper</a> aimed primarily to show how this same interior could be characterized by finitely many ellipoids, which we refer to as critical velocity sets in the figure above. We can use these sets to solve a finite optimization problem using methods in <a href="/assets/PDFs/bv_cvxbook.pdf" target="_blank" >Convex Optimization</a> by Boyd, hence resulting in an optimal solution. These results were also recently generalized to any system existing on complete <a href="/assets/PDFs/Guaranteed_Reachability_on_Riemannian_Manifolds_for_Unknown_Nonlinear_Systems_v1.pdf" target="_blank" >Riemannian manifolds</a> 
     for improved capabilities and a wider range of practical applications.  
   </p>
 
   <p>
-    Existing publications pertaining to controller synthesis detail how we can: (1)
+   With the implementation of advanced optimization and geometric methods, resilient task assignment is sufficiently developed enough to provide the information we need for controller synthesis. Existing publications pertaining to controller synthesis detail how we can: (1)
 <a href="/assets/PDFs/Identifying_Single_Input_Linear_System_Dynamics_from_Reachable_Sets.pdf" target="_blank" >use reachable sets to uniquely determine the system dynamics of an unknown system</a>
     and (2) <a href="/assets/PDFs/Online_Learning_and_Control_Synthesis_for_Reachable_Paths_of_Unknown_Nonlinear_Systems_v1.pdf" target="_blank">synthesize control action using theoretical guarantees from resilient task assignment</a>.
-    Current efforts build on (2), where we use the set of reachable states from resilient task assignment to synthesize control action. 
+    Current efforts build on (2), where we use the set of reachable states from resilient task assignment to synthesize control action. Below is an illustration of RPC following a desired path confirmed reachable through resilient task assignment.
     Specifically, efforts focus on implementing Reachable Predictive Control to navigate an autonomous vehicle around obstacles to a desired target state within a theoretically
     guaranteed amount of time without the use of the vehicle's dynamics model.
   </p>
 
-	<img src="/assets/gifs/controller_synthesis_with_grs.gif" alt="animated" class="center_img"/> 
+	
+
+<img src="/assets/gifs/controller_synthesis_with_grs.gif" alt="animated" class="center_img" style="width: 600px; height: 450px;" />
+
 	<div class="caption">
 		Controller Synthesis for a System Without its Dynamics Model Using Reachable Predictive Control<br>
     Control action is synthesized onboard to follow a linear trajectory towards a state on the boundary of the guaranteed reachable set (GRS) of an unknown system. The GRS is calculated for T = 0.2 seconds while the control action is fully synthesized in 0.1895 seconds. 
   </div>	
+
+  <p>
+  We demonstrate how RPC can use waypoint navigation to navigate to some state that is not within the immediate viscinity of the system's initial location $x_0$. This is possible by calculating the GRS at some initial condition, following a path to a desired state, and then reinitializing the terminal state as its new initial condition. This process is repeated, causing the system to follow waypoints until some desired final state is reached. Thoeretical guarantees in <a href="/assets/PDFs/Online_Learning_and_Control_Synthesis_for_Reachable_Paths_of_Unknown_Nonlinear_Systems_v1.pdf" target="_blank" >this paper</a> prove that the algorithm can track any desired trajectory by converging to the terminal state while remaining within a bounded radius of the followed path. 
+</p>
+  <p>
+    Below is a video demonstrating autonomous waypoint navigation of a straight path. The picture on the left is zoomed-in to demonstrate in detail the path following capabilities of RPC within a convergent radius, while a zoomed-out video shows that, despite the minor oscillations, the path is closely followed to a sufficient degree.
+  </p>
+
+  <video width="1000" height="640" controls>
+  <source src="/assets/videos/RPC_Trajectory_Following.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+  <br><br>
+
+  <p>
+   With waypoint navigation capabilities, RPC is ready to be appied onto an autonomous vehicle. Inspired by "the floor is lava", we show that the car can avoid unsafe regions while following a narrow, veering path safely to its final destination. Observe the input and state plots on the bottom left and right respectively. The input plot shows how RPC inputs learn optimal controls during execution. The state plot illustrates the algorithm's ability to calculate guaranteed steering capabilities to correctly judge whether it can execute a turn in time given its current velocity. The algorithm then uses this information to successfully avoid the lava while making turns and reaching its destination.
+  </p>
+
+  <br><br>
+
+    <video width="1000" height="640" controls>
+  <source src="/assets/videos/RPC_GRS.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
   
 </body>  
 
